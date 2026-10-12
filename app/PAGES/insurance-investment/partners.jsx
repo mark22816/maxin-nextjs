@@ -32,9 +32,9 @@ const productRows = [
       { src: "/images/AXA Logo.png", alt: "AXA Logo" },
       { src: "/images/pioneer_logo.png", alt: "Pioneer Logo" },
       { src: "/images/Bethel.png", alt: "Bethel Logo" },
-      { src: "/images/malayan.png", alt: "Malayan Insurance Logo" },
+      { src: "/images/Malayan.png", alt: "Malayan Insurance Logo" },
       { src: "/images/BPIMS.png", alt: "BPI MS Logo" },
-      { src: "/images/stronghold.png", alt: "Stronghold Logo" },
+      { src: "/images/Stronghold.png", alt: "Stronghold Logo" },
       { src: "/images/prodencial.png", alt: "Prudential Logo" },
     ],
   },
@@ -59,7 +59,7 @@ const productRows = [
     description:
       "Professional guidance and strategic solutions to support your business and financial goals.",
     partners: [
-      { src: "/images/consulting.png", alt: "Machica Group Consulting Logo" },
+      { src: "/images/Consulting.png", alt: "Machica Group Consulting Logo" },
       { src: "/images/pma.png", alt: "PMA Logo" },
       { src: "/images/RFP.webp", alt: "RFP Logo" },
     ],
