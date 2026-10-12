@@ -20,7 +20,7 @@ const productRows = [
       "Solutions designed to help protect your loved ones and build your financial future.",
     partners: [
       { src: "/images/AXA Logo.png", alt: "AXA Logo" },
-      { src: "/images/fami.png", alt: "FAMI Logo" },
+      { src: "/images/FAMI.png", alt: "FAMI Logo" },
     ],
   },
   {
