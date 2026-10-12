@@ -17,6 +17,17 @@
     transform: rotateY(0deg);
     opacity: 1;
   }
+
+  
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 :root {
   --color-maxin-blue: #012289;

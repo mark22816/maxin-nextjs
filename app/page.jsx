@@ -1,5 +1,5 @@
 
-import  HomeComponent from "./insurance-investment/index"
+import  HomeComponent from "./PAGES/insurance-investment/page"
 
 
 export default function Home() {
