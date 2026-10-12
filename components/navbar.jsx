@@ -124,11 +124,11 @@ export default function Navbar() {
                                     </Link>
                                 </div>
                             )}
-                        </div>
+                        </div>  
 
-                        <a href="#get-quote" onClick={() => setMobileMenuIsOpen(false)} className="block text-[#012289] hover:text-[#0056b3] font-bold text-sm">
+                        <Link href= "/PAGES/get-quote/index" onClick={() => setMobileMenuIsOpen(false)} className="block text-[#012289] hover:text-[#0056b3] font-bold text-sm">
                             GET QUOTE
-                        </a>
+                        </Link>
 
                         <a href="#claims" onClick={() => setMobileMenuIsOpen(false)} className="block text-[#012289] hover:text-[#0056b3] font-bold text-sm">
                             CLAIMS
