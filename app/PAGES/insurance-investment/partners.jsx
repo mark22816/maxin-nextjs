@@ -20,7 +20,7 @@ const productRows = [
       "Solutions designed to help protect your loved ones and build your financial future.",
     partners: [
       { src: "/images/AXA Logo.png", alt: "AXA Logo" },
-      { src: "/images/fami.png", alt: "FAMI Logo" },
+      { src: "/images/FAMI.png", alt: "FAMI Logo" },
     ],
   },
   {
@@ -34,7 +34,7 @@ const productRows = [
       { src: "/images/Bethel.png", alt: "Bethel Logo" },
       { src: "/images/Malayan.png", alt: "Malayan Insurance Logo" },
       { src: "/images/BPIMS.png", alt: "BPI MS Logo" },
-      { src: "/images/Stronghold.png", alt: "Stronghold Logo" }, 
+      { src: "/images/stronghold.png", alt: "Stronghold Logo" },
       { src: "/images/prodencial.png", alt: "Prudential Logo" },
     ],
   },
