@@ -37,9 +37,7 @@ export default function Content() {
 
           {/* Description */}
           <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
-            We partner with trusted non-life insurance providers to protect what matters most. With comprehensive 
-            coverage and flexible solutions, we help safeguard your assets, business, and future, giving you confidence
-            and peace of mind every step of the way.
+            
 
           </p>
 

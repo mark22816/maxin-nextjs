@@ -1,10 +1,19 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import Container from "../../../../Layout/container";
-import { IMAGES } from "../../../../constants/images";
-import FireInsuranceForm from "../../../../components/get_quote_form/fire_insurance";
+import FireInsuranceForm from "../../../../components/get_quote_form/non-life_insurance/fire_insurance";
+import MotorCarInsurance from "../../../../components/get_quote_form/non-life_insurance/motor_car_insurance";
+import TravelInsurance from "../../../../components/get_quote_form/non-life_insurance/travel_insurance";
+import PersonaLInccident from"../../../../components/get_quote_form/non-life_insurance/personal_inccident";
+import MarineInsurance from"../../../../components/get_quote_form/non-life_insurance/marine_insurance";
+import BondSurety from"../../../../components/get_quote_form/non-life_insurance/bonds_surety";
+import Engineering from"../../../../components/get_quote_form/non-life_insurance/engineering_insurance";
+import GeneralLiablity from"../../../../components/get_quote_form/non-life_insurance/general_liability";
+import IndemnityInsurance from"../../../../components/get_quote_form/non-life_insurance/professional_insurance";
+ 
+
+
 
 const products = [
   "Fire Insurance",
@@ -21,6 +30,18 @@ const products = [
 // Add the other forms here as you build them (key = product name)
 const forms = {
   "Fire Insurance": <FireInsuranceForm />,
+  "Motor Car Insurance": <MotorCarInsurance/>,
+  "Travel Insurance": <TravelInsurance/>,
+  "Personal Accident Insurance": <PersonaLInccident/>,
+  "Marine Insurance": <MarineInsurance/>,
+  "Bonds & Surety": <BondSurety/>,
+  "Engineering Insurance": <Engineering/>,
+  "Comprehensive General Liability": <GeneralLiablity/>,
+  "Professional Indemnity Insurance": <IndemnityInsurance/>,
+  
+  
+
+  
 };
 
 export default function NoneLifeInsurance() {
@@ -31,7 +52,7 @@ export default function NoneLifeInsurance() {
       <main className="grid items-start md:grid-cols-[22rem_1fr] gap-10 bg-white py-18 min-h-screen">
         {/* Left: product list */}
         <aside>
-          <h2 className="mb-4 text-lg font-semibold text-[#012289]">
+          <h2 className="mb-4 text-xl font-bold text-[#012289]">
             Select Products
           </h2>
 

@@ -47,7 +47,7 @@ export default function FireInsuranceForm() {
       {/* Header */}
       <header className="border-b border-gray-200 bg-gray-50 px-5 py-5 sm:px-8">
         <h2 className="text-xl font-bold text-[#012289]">
-          Fire Insurance Quotation
+          Please fill out the form
         </h2>
         <p className="mt-1 text-sm text-gray-600">
           Fields marked <span className="text-red-600">*</span> are required.
@@ -160,74 +160,14 @@ export default function FireInsuranceForm() {
             />
           </Field>
         </div>
-      </Section>
+     
 
-      {/* 2. Details of property to be insured */}
-      <Section number="2" title="Details of Property to be Insured">
-        <Field id="propertyLocation" label="Location of Property to be Insured" required>
-          <input
-            id="propertyLocation"
-            name="propertyLocation"
-            type="text"
-            required
-            placeholder="Location"
-            className={inputClass}
-          />
-        </Field>
+     
 
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Field id="email" label="Email Address" required>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              placeholder="Please input valid email address"
-              className={inputClass}
-            />
-          </Field>
-          <Field id="mobile" label="Mobile Number" required>
-            <input
-              id="mobile"
-              name="mobile"
-              type="tel"
-              required
-              placeholder="Please input valid contact number"
-              className={inputClass}
-            />
-          </Field>
-        </div>
-
-        <fieldset className="mt-4">
-          <legend className={labelClass}>Use of Property</legend>
-          <div className="flex flex-wrap items-center gap-2">
-            {["Commercial", "Warehouse", "Residence"].map((use) => (
-              <label key={use} className="cursor-pointer">
-                <input
-                  type="checkbox"
-                  name="propertyUse"
-                  value={use}
-                  className="peer sr-only"
-                />
-                <span className="block border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 transition-colors hover:border-[#14678d] peer-checked:border-[#14678d] peer-checked:bg-[#14678d] peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-[#1a9cc4]/40">
-                  {use}
-                </span>
-              </label>
-            ))}
-            <label className="flex items-center gap-2 text-sm font-semibold text-[#14678d]">
-              Others:
-              <input
-                type="text"
-                name="propertyUseOther"
-                className="w-40 border-b border-gray-400 bg-transparent px-1 py-1.5 text-sm font-normal text-gray-900 focus:border-[#1a9cc4] focus:outline-none"
-              />
-            </label>
-          </div>
-        </fieldset>
 
         <div className="mt-4">
           <label htmlFor="supportingImage" className={labelClass}>
-            Supporting Image
+            Upload airline ticket
           </label>
           <input
             id="supportingImage"
@@ -244,7 +184,7 @@ export default function FireInsuranceForm() {
       </Section>
 
       {/* 3. Terms & Condition */}
-      <Section number="3" title="Terms & Conditions">
+      <Section number="2" title="Terms & Conditions">
         <label className="flex items-start gap-3 text-sm leading-relaxed text-gray-800">
           <input
             type="checkbox"

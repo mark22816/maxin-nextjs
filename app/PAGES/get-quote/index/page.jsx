@@ -4,7 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Container from "../../../../Layout/container";
 import { IMAGES } from "../../../../constants/images";
-import LifeMutualFunds from "../../../../components/get_quote_form/life_mutual_funds";
+import LifeMutualFunds from "../../../../components/get_quote_form/life_insurance/life_mutual_funds";
+import  HmoHealthInsurance from "../hmo_health_insurance/page";
 import NoneLifeInsurance from "../non-life-insurance/page";
 
 
@@ -21,7 +22,7 @@ export default function GetQuote() {
     const forms = {
         life: <LifeMutualFunds />,
         nonlife: <NoneLifeInsurance />,
-        hmo: null,
+        hmo: <HmoHealthInsurance/>,
     };
 
     return (
@@ -34,7 +35,7 @@ export default function GetQuote() {
                         alt="get quote"
                         fill
                         priority
-                        quality={100}
+                        quality={75}
                         sizes="auto"
                         className="object-cover object-center"
                     />
@@ -60,7 +61,7 @@ export default function GetQuote() {
             {/* Buttons: switch the form below */}
             <section className="w-full bg-white py-10 ">
                 <Container>
-                    <div className="grid grid-cols-1 gap-6 justify-center sm:grid-cols-2 lg:grid-cols-3 px-20">
+                    <div className="grid grid-cols-1 gap-6 justify-center sm:grid-cols-1 lg:grid-cols-3 px-20">
                         {links.map((link) => (
                             <button
                                 key={link.key}

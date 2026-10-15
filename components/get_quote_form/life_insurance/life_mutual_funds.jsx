@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Container from "../../Layout/container";
+import Container from "../../../Layout/container";
 import { useRef, useState } from "react";
 
 const PRODUCTS = [
@@ -16,8 +16,11 @@ const PRODUCTS = [
 const SALUTATIONS = ["Mr.", "Ms.", "Mrs."];
 const MAX_FILE_MB = 5;
 
+// Change this one value to change the background of all three cards
+const CARD_BG = "bg-gray-50";
+
 const inputClass = (hasError) =>
-    `w-full  border bg-white px-4 py-3 text-base text-gray-900 outline-none transition placeholder:text-gray-400 focus:ring-2 ${
+    `w-full border bg-white px-3.5 py-3 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:ring-2 ${
         hasError
             ? "border-red-500 focus:border-red-500 focus:ring-red-500/30"
             : "border-[#1d688b] focus:border-[#012289] focus:ring-[#012289]/30"
@@ -125,7 +128,7 @@ export default function LifeMutualFunds() {
         return (
             <section className="w-full bg-white py-12">
                 <Container>
-                    <div role="status" className="mx-auto max-w-xl rounded-2xl bg-[#f0f8ff] p-8 text-center shadow-sm">
+                    <div role="status" className={`mx-auto max-w-xl rounded-2xl ${CARD_BG} p-8 text-center shadow-sm`}>
                         <h2 className="mb-2 text-2xl font-semibold text-[#012289]">Thank you!</h2>
                         <p className="mb-6 text-gray-700">
                             We received your request. Our team will contact you shortly.
@@ -150,10 +153,10 @@ export default function LifeMutualFunds() {
                     {/* 1. Select Products */}
                     <fieldset
                         aria-describedby={errors.products ? "products-error" : undefined}
-                        className=" bg-[#f0f8ff] p-6 shadow-sm sm:p-8"
+                        className={` ${CARD_BG} p-6 shadow-sm sm:p-8`}
                     >
                         <legend className="sr-only">Select products</legend>
-                        <h2 className="text-2xl font-semibold text-[#012289]" aria-hidden="true">
+                        <h2 className="text-xl font-bold text-[#012289]" aria-hidden="true">
                             1. Select Products
                         </h2>
                         <p className="mt-1 mb-5 text-sm text-[#1d688b]">You can select multiple types of insurance.</p>
@@ -194,8 +197,8 @@ export default function LifeMutualFunds() {
                     </fieldset>
 
                     {/* 2. Client Information */}
-                    <div className=" bg-[#f0f8ff] p-6 shadow-sm sm:p-8">
-                        <h2 className="mb-6 text-2xl font-semibold text-[#012289]">2. Client Information</h2>
+                    <div className={` ${CARD_BG} p-6 shadow-sm sm:p-8`}>
+                        <h2 className="mb-6 text-xl font-bold text-[#012289]">2. Client Information</h2>
 
                         <div className="space-y-5">
                             <Field id="salutation" label="Salutation" error={errors.salutation}>

@@ -34,7 +34,7 @@ const productRows = [
       { src: "/images/Bethel.png", alt: "Bethel Logo" },
       { src: "/images/Malayan.png", alt: "Malayan Insurance Logo" },
       { src: "/images/BPIMS.png", alt: "BPI MS Logo" },
-      { src: "/images/Stronghold.png", alt: "Stronghold Logo" },
+      { src: "/images/Stronghold.png", alt: "Stronghold Logo" }, 
       { src: "/images/prodencial.png", alt: "Prudential Logo" },
     ],
   },
@@ -87,11 +87,7 @@ export default function ProductsAndPartners() {
               <span className="text-[#14678d]">Trusted Partners</span>
             </h2>
 
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-gray-600 sm:text-base">
-              We connect you with trusted insurance, healthcare, investment,
-              and professional service providers to deliver solutions designed
-              around your needs.
-            </p>
+            
           </div>
 
           {/* PRODUCT CARDS */}
