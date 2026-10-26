@@ -34,7 +34,7 @@ const productRows = [
       { src: "/images/Bethel.png", alt: "Bethel Logo" },
       { src: "/images/Malayan.png", alt: "Malayan Insurance Logo" },
       { src: "/images/BPIMS.png", alt: "BPI MS Logo" },
-      { src: "/images/stronghold.png", alt: "Stronghold Logo" },
+      { src: "/images/Stronghold.png", alt: "Stronghold Logo" },
       { src: "/images/prodencial.png", alt: "Prudential Logo" },
     ],
   },

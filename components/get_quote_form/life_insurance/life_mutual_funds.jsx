@@ -1,5 +1,7 @@
 "use client";
-
+import { submitLifeMutualFund } from "../../../lib/submitInsuranceform";
+import SuccessModal from "../../../components/success_message";
+import CaptchaModal from "../../../components/capcha"
 import Link from "next/link";
 import Container from "../../../Layout/container";
 import { useRef, useState } from "react";
@@ -43,7 +45,9 @@ function Field({ id, label, error, children }) {
 }
 
 export default function LifeMutualFunds() {
-    
+    const formRef = useRef(null);
+    const fileRef = useRef(null);
+
     const [products, setProducts] = useState([]);
     const [salutation, setSalutation] = useState("");
     const [fullName, setFullName] = useState("");
@@ -53,8 +57,11 @@ export default function LifeMutualFunds() {
     const [files, setFiles] = useState([]);
     const [agreed, setAgreed] = useState(false);
     const [errors, setErrors] = useState({});
-    const [submitted, setSubmitted] = useState(false);
-    const fileRef = useRef(null);
+
+    const [showCaptcha, setShowCaptcha] = useState(false);
+    const [busy, setBusy] = useState(false);
+    const [captchaError, setCaptchaError] = useState("");
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const today = new Date().toISOString().split("T")[0];
 
@@ -92,6 +99,20 @@ export default function LifeMutualFunds() {
         return next;
     };
 
+    const reset = () => {
+        setProducts([]);
+        setSalutation("");
+        setFullName("");
+        setBirthday("");
+        setContact("");
+        setEmail("");
+        setFiles([]);
+        setAgreed(false);
+        setErrors({});
+        setCaptchaError("");
+    };
+
+    // Step 1: validate, then open the captcha
     const handleSubmit = (e) => {
         e.preventDefault();
         const next = validate();
@@ -107,49 +128,57 @@ export default function LifeMutualFunds() {
             return;
         }
 
-        // TODO: send { products, salutation, fullName, birthday, contact, email, files, agreed } to your API
-        setSubmitted(true);
+        setCaptchaError("");
+        setShowCaptcha(true);
     };
 
-    const reset = () => {
-        setProducts([]);
-        setSalutation("");
-        setFullName("");
-        setBirthday("");
-        setContact("");
-        setEmail("");
-        setFiles([]);
-        setAgreed(false);
-        setErrors({});
-        setSubmitted(false);
-    };
+    // Step 2: captcha gives a token -> verify -> upload files + insert row
+    const handleToken = async (token) => {
+        setBusy(true);
+        setCaptchaError("");
 
-    if (submitted) {
-        return (
-            <section className="w-full bg-white py-12">
-                <Container>
-                    <div role="status" className={`mx-auto max-w-xl rounded-2xl ${CARD_BG} p-8 text-center shadow-sm`}>
-                        <h2 className="mb-2 text-2xl font-semibold text-[#012289]">Thank you!</h2>
-                        <p className="mb-6 text-gray-700">
-                            We received your request. Our team will contact you shortly.
-                        </p>
-                        <button
-                            type="button"
-                            onClick={reset}
-                            className=" border border-[#012289] px-5 py-3 text-sm font-medium text-[#012289] transition-colors hover:bg-[#012289] hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#012289]/40 focus-visible:ring-offset-2"
-                        >
-                            Submit another request
-                        </button>
-                    </div>
-                </Container>
-            </section>
-        );
-    }
+        try {
+            const verify = await fetch("/api/verify-turnstile", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ token }),
+            });
+            const { success } = await verify.json();
+
+            if (!success) {
+                setCaptchaError("Verification failed. Please close and try again.");
+                return;
+            }
+
+            const { error } = await submitLifeMutualFund(new FormData(formRef.current), files);
+
+            if (error) {
+                console.error(error.message, error.code, error.details, error.hint);
+                setCaptchaError("Something went wrong. Please try again.");
+                return;
+            }
+
+            reset();
+            setShowCaptcha(false);
+            setShowSuccess(true);
+        } catch (err) {
+            console.error(err);
+            setCaptchaError("Something went wrong. Please try again.");
+        } finally {
+            setBusy(false);
+        }
+    };
 
     return (
+        <>
         <section className="w-full bg-white py-10 lg:py-16">
             <Container>
-                <form onSubmit={handleSubmit} noValidate className="grid items-start gap-6 lg:grid-cols-[1fr_1.4fr]">
+                <form
+                    ref={formRef}
+                    onSubmit={handleSubmit}
+                    noValidate
+                    className="grid items-start gap-6 lg:grid-cols-[1fr_1.4fr]"
+                >
                     {/* 1. Select Products */}
                     <fieldset
                         aria-describedby={errors.products ? "products-error" : undefined}
@@ -178,6 +207,8 @@ export default function LifeMutualFunds() {
                                     >
                                         <input
                                             id={`product-${i}`}
+                                            name="products"
+                                            value={name}
                                             type="checkbox"
                                             checked={checked}
                                             onChange={() => toggleProduct(name)}
@@ -204,6 +235,7 @@ export default function LifeMutualFunds() {
                             <Field id="salutation" label="Salutation" error={errors.salutation}>
                                 <select
                                     id="salutation"
+                                    name="salutation"
                                     value={salutation}
                                     onChange={(e) => {
                                         setSalutation(e.target.value);
@@ -225,6 +257,7 @@ export default function LifeMutualFunds() {
                             <Field id="fullName" label="Full Name" error={errors.fullName}>
                                 <input
                                     id="fullName"
+                                    name="fullName"
                                     type="text"
                                     autoComplete="name"
                                     value={fullName}
@@ -243,6 +276,7 @@ export default function LifeMutualFunds() {
                                 <Field id="birthday" label="Birthday" error={errors.birthday}>
                                     <input
                                         id="birthday"
+                                        name="birthday"
                                         type="date"
                                         max={today}
                                         autoComplete="bday"
@@ -260,6 +294,7 @@ export default function LifeMutualFunds() {
                                 <Field id="contact" label="Contact Number" error={errors.contact}>
                                     <input
                                         id="contact"
+                                        name="contact"
                                         type="tel"
                                         inputMode="tel"
                                         autoComplete="tel"
@@ -279,6 +314,7 @@ export default function LifeMutualFunds() {
                             <Field id="email" label="Email" error={errors.email}>
                                 <input
                                     id="email"
+                                    name="email"
                                     type="email"
                                     inputMode="email"
                                     autoComplete="email"
@@ -358,6 +394,7 @@ export default function LifeMutualFunds() {
                                 >
                                     <input
                                         id="agreed"
+                                        name="agreed"
                                         type="checkbox"
                                         checked={agreed}
                                         onChange={(e) => {
@@ -399,16 +436,29 @@ export default function LifeMutualFunds() {
                             {/* Submit */}
                             <div className="flex justify-end px-5 py-5 sm:px-8">
                                 <button
-                               type="submit"
-                               className="w-full bg-[#012289] px-10 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#14678d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a9cc4] focus-visible:ring-offset-2 sm:w-auto"
-                               >
-                               Submit
-                               </button>
+                                    type="submit"
+                                    disabled={busy}
+                                    className="w-full bg-[#012289] px-10 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#14678d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a9cc4] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                                >
+                                    Submit
+                                </button>
                             </div>
                         </div>
                     </div>
                 </form>
+          
             </Container>
-        </section>
+         </section>
+
+          {showCaptcha && (
+          <CaptchaModal
+          onToken={handleToken}
+          onClose={() => setShowCaptcha(false)}
+          busy={busy}
+          error={captchaError}
+          />
+          )}
+         {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
+         </>
     );
 }

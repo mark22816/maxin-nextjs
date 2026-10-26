@@ -42,7 +42,7 @@ export default function HMOSection  () {
       link: "/PAGES/HMO/philcare",
     },
     {
-      logo: "/images/ims.png",
+      logo: "/images/IMS.png",
       logoWidth: 300,
       description:
         "IMS offers comprehensive health insurance solutions for individuals and organizations, ensuring access to quality medical care and financial protection.",
@@ -50,7 +50,7 @@ export default function HMOSection  () {
       link: "/PAGES/HMO/ims",
     },
     {
-      logo: "/images/avega.png",
+      logo: "/images/AVEGA.png",
       logoWidth: 300,
       description:
         "Avega offers comprehensive health insurance solutions for individuals and organizations, ensuring access to quality medical care and financial protection.",

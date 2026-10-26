@@ -119,7 +119,7 @@ export default function Navbar() {
                                     <Link href="/PAGES/non-lifeInsurance" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
                                         Non-Life Insurance
                                     </Link>
-                                    <Link href="PAGES/hmo-health-insurance" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
+                                    <Link href="/PAGES/hmo-health-insurance" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
                                         HMO / Health Insurance
                                     </Link>
                                 </div>

@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useState } from "react";
 import CaptchaModal from "../../../components/capcha"
-import { submitPersonalType } from "../../../lib/submitInsurance";
+import { PersonalTypeForm } from "../../../lib/submitInsuranceform";
 import SuccessModal from "../../../components/success_message";
 
 const inputClass =
@@ -50,7 +50,7 @@ export default function HMOPersonal() {
         return;
       }
 
-      const { error } = await submitPersonalType(
+      const { error } = await PersonalTypeForm(
         new FormData(formRef.current)
       );
 

@@ -1,6 +1,17 @@
 "use client";
+
+/**
+ * HMOBusiness: get-quote form for HMO business leads.
+ *
+ * Flow: Submit -> captcha opens -> token verified at /api/verify-turnstile
+ *       -> lead saved to Supabase (hmo_business_leads) -> success modal.
+ *
+ * Values are read with FormData, so every input needs a `name`
+ * that matches what submitBusinessType() in lib/submitInsurance.js reads.
+ */
+
 import { useRef, useState } from "react";
-import { submitBusinessType } from "../../../lib/submitInsurance";
+import { BusinessTypeForm} from "../../../lib/submitInsuranceform";
 import CaptchaModal from "../../../components/capcha";
 import SuccessModal from "../../../components/success_message";
 
@@ -8,6 +19,7 @@ const inputClass =
   "w-full border border-gray-300 bg-white px-3.5 py-3 text-sm text-gray-900 placeholder:text-gray-400 focus:border-[#3b97ee] focus:outline-none";
 const labelClass = "mb-2 block text-[15px] font-medium text-[#14678d]";
 
+// Label + input wrapper. `id` must match the input's id.
 function Field({ id, label, className = "", children }) {
   return (
     <div className={className}>
@@ -26,12 +38,14 @@ export default function HMOBusiness() {
   const [captchaError, setCaptchaError] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
 
+  // Step 1: open the captcha (browser validation has already run).
   const handleSubmit = (e) => {
     e.preventDefault();
     setCaptchaError("");
     setShowCaptcha(true);
   };
 
+  // Step 2: verify the captcha token, then save the lead.
   const handleToken = async (token) => {
     setBusy(true);
     setCaptchaError("");
@@ -49,7 +63,7 @@ export default function HMOBusiness() {
         return;
       }
 
-      const { error } = await submitBusinessType(
+      const { error } = await BusinessTypeForm(
         new FormData(formRef.current)
       );
 
@@ -74,9 +88,11 @@ export default function HMOBusiness() {
     <>
       <form ref={formRef} onSubmit={handleSubmit} className="w-full">
         <div className="grid grid-cols-1 gap-x-8 gap-y-5 sm:grid-cols-2">
-          <h2 className="text-xl font-bold text-[#012289]">
+           <h2 className="text-xl font-bold text-[#012289] sm:col-span-2">
             Please fill out the form
           </h2>
+
+          {/* Checkboxes share one name; saved as an array. */}
           <fieldset className="sm:col-span-2">
             <legend className={labelClass}>Type of Business:</legend>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
@@ -135,6 +151,7 @@ export default function HMOBusiness() {
             />
           </Field>
 
+          {/* Optional: empty is saved as null. */}
           <Field id="industrial" label="Industrial">
             <input
               id="industrial"
@@ -199,6 +216,7 @@ export default function HMOBusiness() {
             />
           </Field>
 
+          {/* Yes/No answers are saved as text, not booleans. */}
           <Field id="registeredInPH" label="Is your business registered in the Philippines?">
             <select
               id="registeredInPH"
@@ -232,6 +250,7 @@ export default function HMOBusiness() {
           </Field>
         </div>
 
+        {/* Required consent; saved as "Yes" / "No". */}
         <label className="mt-6 flex items-start gap-3 text-sm leading-relaxed text-gray-800">
           <input
             type="checkbox"

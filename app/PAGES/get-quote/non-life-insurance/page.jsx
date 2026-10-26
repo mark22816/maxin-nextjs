@@ -5,7 +5,7 @@ import Container from "../../../../Layout/container";
 import FireInsuranceForm from "../../../../components/get_quote_form/non-life_insurance/fire_insurance";
 import MotorCarInsurance from "../../../../components/get_quote_form/non-life_insurance/motor_car_insurance";
 import TravelInsurance from "../../../../components/get_quote_form/non-life_insurance/travel_insurance";
-import PersonaLInccident from"../../../../components/get_quote_form/non-life_insurance/personal_inccident";
+import PersonaLInccident from"../../../../components/get_quote_form/non-life_insurance/personal_accident";
 import MarineInsurance from"../../../../components/get_quote_form/non-life_insurance/marine_insurance";
 import BondSurety from"../../../../components/get_quote_form/non-life_insurance/bonds_surety";
 import Engineering from"../../../../components/get_quote_form/non-life_insurance/engineering_insurance";

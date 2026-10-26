@@ -160,9 +160,28 @@ export default function FireInsuranceForm() {
             />
           </Field>
         </div>
-     
-
-     
+        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field id="email" label="Email Address" required>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="Please input valid email address"
+                className={inputClass}
+              />
+            </Field>
+            <Field id="mobile" label="Mobile Number" required>
+              <input
+                id="mobile"
+                name="mobile"
+                type="tel"
+                required
+                placeholder="Please input valid contact number"
+                className={inputClass}
+              />
+            </Field>
+          </div>
 
 
         <div className="mt-4">

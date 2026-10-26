@@ -1,5 +1,12 @@
 "use client";
 
+import { useRef, useState } from "react";
+import { TravelForm } from "../../../lib/submitInsuranceform";
+import SuccessModal from "../../../components/success_message";
+import CaptchaModal from "../../../components/capcha";
+import useBirthdayAge from "../../../lib/userBirthdayAge";
+
+
 const inputClass =
   "w-full border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 transition-colors focus:border-[#1a9cc4] focus:outline-none focus:ring-2 focus:ring-[#1a9cc4]/30";
 const labelClass =
@@ -31,16 +38,69 @@ function Section({ number, title, children }) {
   );
 }
 
-export default function FireInsuranceForm() {
+export default function Travel(){
+  const formRef = useRef(null);
+  const { age, today, onBirthdayChange, resetAge } = useBirthdayAge();
+  const [showCaptcha, setShowCaptcha] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [captchaError, setCaptchaError] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  // Step 1: open the captcha (browser validation has already run).
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    console.log({ product: "Fire Insurance", ...data });
-    // TODO: send `data` to your API
+    setCaptchaError("");
+    setShowCaptcha(true);
   };
 
+  // Step 2: verify the captcha token, then save the lead.
+  const handleToken = async (token) => {
+    setBusy(true);
+    setCaptchaError("");
+
+    try {
+      const verify = await fetch("/api/verify-turnstile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token }),
+      });
+      const { success } = await verify.json();
+
+      if (!success) {
+        setCaptchaError("Verification failed. Please close and try again.");
+        return;
+      }
+
+      const { error } = await TravelForm(
+        new FormData(formRef.current)
+      );
+
+      if (error) {
+        console.error(error.message, error.code, error.details, error.hint);
+        setCaptchaError("Something went wrong. Please try again.");
+        return;
+      }
+
+      formRef.current.reset();
+      resetAge();
+      setShowCaptcha(false);
+      setShowSuccess(true);
+    } catch (err) {
+      console.error(err);
+      setCaptchaError("Something went wrong. Please try again.");
+    } finally {
+      setBusy(false);
+    }
+  };
+
+
+
+
+
   return (
+    <>
     <form
+     ref={formRef}
       onSubmit={handleSubmit}
       className="w-full border border-gray-200 border-t-4 border-t-[#012289] bg-white shadow-sm"
     >
@@ -127,7 +187,9 @@ export default function FireInsuranceForm() {
               id="birthday"
               name="birthday"
               type="date"
+              max={today}
               required
+              onChange={onBirthdayChange}
               className={inputClass}
             />
           </Field>
@@ -137,6 +199,8 @@ export default function FireInsuranceForm() {
               name="age"
               type="number"
               min="0"
+              value={age}
+              readOnly
               required
               className={inputClass}
             />
@@ -159,11 +223,30 @@ export default function FireInsuranceForm() {
               className={inputClass}
             />
           </Field>
+
         </div>
-     
-
-     
-
+         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field id="email" label="Email Address" required>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="Please input valid email address"
+                className={inputClass}
+              />
+            </Field>
+            <Field id="mobile" label="Mobile Number" required>
+              <input
+                id="mobile"
+                name="mobile"
+                type="tel"
+                required
+                placeholder="Please input valid contact number"
+                className={inputClass}
+              />
+            </Field>
+          </div>
 
         <div className="mt-4">
           <label htmlFor="supportingImage" className={labelClass}>
@@ -218,5 +301,16 @@ export default function FireInsuranceForm() {
         </button>
       </footer>
     </form>
+
+      {showCaptcha && (
+                <CaptchaModal
+                  onToken={handleToken}
+                  onClose={() => setShowCaptcha(false)}
+                  busy={busy}
+                  error={captchaError}
+                />
+              )}
+              {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
+    </>
   );
 }

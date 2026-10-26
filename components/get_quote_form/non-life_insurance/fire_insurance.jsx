@@ -1,5 +1,11 @@
 "use client";
 
+import { useRef, useState } from "react";
+import { FireInsuranceForm } from "../../../lib/submitInsuranceform";
+import SuccessModal from "../../../components/success_message";
+import CaptchaModal from "../../../components/capcha";
+import useBirthdayAge from "../../../lib/userBirthdayAge";
+
 const inputClass =
   "w-full border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 placeholder:text-gray-400 transition-colors focus:border-[#1a9cc4] focus:outline-none focus:ring-2 focus:ring-[#1a9cc4]/30";
 const labelClass =
@@ -31,252 +37,315 @@ function Section({ number, title, children }) {
   );
 }
 
-export default function FireInsuranceForm() {
+export default function FireInsurance() {
+  const formRef = useRef(null);
+  const { age, today, onBirthdayChange, resetAge } = useBirthdayAge();
+  const [showCaptcha, setShowCaptcha] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [captchaError, setCaptchaError] = useState("");
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  // Step 1: open the captcha (browser validation has already run).
   const handleSubmit = (e) => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    console.log({ product: "Fire Insurance", ...data });
-    // TODO: send `data` to your API
+    setCaptchaError("");
+    setShowCaptcha(true);
+  };
+
+  // Step 2: verify the captcha token, then save the lead.
+  const handleToken = async (token) => {
+    setBusy(true);
+    setCaptchaError("");
+
+    try {
+      const verify = await fetch("/api/verify-turnstile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token }),
+      });
+      const { success } = await verify.json();
+
+      if (!success) {
+        setCaptchaError("Verification failed. Please close and try again.");
+        return;
+      }
+
+      const { error } = await FireInsuranceForm(
+        new FormData(formRef.current)
+      );
+
+      if (error) {
+        console.error(error.message, error.code, error.details, error.hint);
+        setCaptchaError("Something went wrong. Please try again.");
+        return;
+      }
+
+      formRef.current.reset();
+      resetAge();
+      setShowCaptcha(false);
+      setShowSuccess(true);
+    } catch (err) {
+      console.error(err);
+      setCaptchaError("Something went wrong. Please try again.");
+    } finally {
+      setBusy(false);
+    }
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-full border border-gray-200 border-t-4 border-t-[#012289] bg-white shadow-sm"
-    >
-      {/* Header */}
-      <header className="border-b border-gray-200 bg-gray-50 px-5 py-5 sm:px-8">
-        <h2 className="text-xl font-bold text-[#012289]">
-          Please fill out the form
-        </h2>
-        <p className="mt-1 text-sm text-gray-600">
-          Fields marked <span className="text-red-600">*</span> are required.
-        </p>
-      </header>
-
-      {/* 1. Client Information */}
-      <Section number="1" title="Client Information">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_10rem]">
-          <Field id="fullName" label="Full Name" required>
-            <input
-              id="fullName"
-              name="fullName"
-              type="text"
-              required
-              placeholder="Last Name, First Name, Middle Name"
-              className={inputClass}
-            />
-          </Field>
-          <Field id="sex" label="Sex" required>
-            <select
-              id="sex"
-              name="sex"
-              required
-              defaultValue=""
-              className={inputClass}
-            >
-              <option value="" disabled>
-                Select
-              </option>
-              <option value="Male">Male</option>
-              <option value="Female">Female</option>
-            </select>
-          </Field>
-        </div>
-
-        <Field id="registeredName" label="Registered Name (if any)" className="mt-4">
-          <input
-            id="registeredName"
-            name="registeredName"
-            type="text"
-            placeholder="Corporation, Partnership"
-            className={inputClass}
-          />
-        </Field>
-
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-[1fr_10rem]">
-          <Field
-            id="address"
-            label="Permanent Address / Principal Place of Business"
-            required
-          >
-            <input
-              id="address"
-              name="address"
-              type="text"
-              required
-              placeholder="Unit/Floor No., Building, Street, Barangay, City, Province"
-              className={inputClass}
-            />
-          </Field>
-          <Field id="zipCode" label="Zip Code" required>
-            <input
-              id="zipCode"
-              name="zipCode"
-              type="text"
-              inputMode="numeric"
-              required
-              className={inputClass}
-            />
-          </Field>
-        </div>
-
-        <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-[11rem_5rem_1fr_1fr]">
-          <Field id="birthday" label="Birthday" required className="col-span-2 lg:col-span-1">
-            <input
-              id="birthday"
-              name="birthday"
-              type="date"
-              required
-              className={inputClass}
-            />
-          </Field>
-          <Field id="age" label="Age" required>
-            <input
-              id="age"
-              name="age"
-              type="number"
-              min="0"
-              required
-              className={inputClass}
-            />
-          </Field>
-          <Field id="placeOfBirth" label="Place of Birth" required>
-            <input
-              id="placeOfBirth"
-              name="placeOfBirth"
-              type="text"
-              required
-              className={inputClass}
-            />
-          </Field>
-          <Field id="nationality" label="Nationality" required>
-            <input
-              id="nationality"
-              name="nationality"
-              type="text"
-              required
-              className={inputClass}
-            />
-          </Field>
-        </div>
-      </Section>
-
-      {/* 2. Details of property to be insured */}
-      <Section number="2" title="Details of Property to be Insured">
-        <Field id="propertyLocation" label="Location of Property to be Insured" required>
-          <input
-            id="propertyLocation"
-            name="propertyLocation"
-            type="text"
-            required
-            placeholder="Location"
-            className={inputClass}
-          />
-        </Field>
-
-        <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <Field id="email" label="Email Address" required>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              placeholder="Please input valid email address"
-              className={inputClass}
-            />
-          </Field>
-          <Field id="mobile" label="Mobile Number" required>
-            <input
-              id="mobile"
-              name="mobile"
-              type="tel"
-              required
-              placeholder="Please input valid contact number"
-              className={inputClass}
-            />
-          </Field>
-        </div>
-
-        <fieldset className="mt-4">
-          <legend className={labelClass}>Use of Property</legend>
-          <div className="flex flex-wrap items-center gap-2">
-            {["Commercial", "Warehouse", "Residence"].map((use) => (
-              <label key={use} className="cursor-pointer">
-                <input
-                  type="checkbox"
-                  name="propertyUse"
-                  value={use}
-                  className="peer sr-only"
-                />
-                <span className="block border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 transition-colors hover:border-[#14678d] peer-checked:border-[#14678d] peer-checked:bg-[#14678d] peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-[#1a9cc4]/40">
-                  {use}
-                </span>
-              </label>
-            ))}
-            <label className="flex items-center gap-2 text-sm font-semibold text-[#14678d]">
-              Others:
-              <input
-                type="text"
-                name="propertyUseOther"
-                className="w-40 border-b border-gray-400 bg-transparent px-1 py-1.5 text-sm font-normal text-gray-900 focus:border-[#1a9cc4] focus:outline-none"
-              />
-            </label>
-          </div>
-        </fieldset>
-
-        <div className="mt-4">
-          <label htmlFor="supportingImage" className={labelClass}>
-            Supporting Image
-          </label>
-          <input
-            id="supportingImage"
-            name="supportingImage"
-            type="file"
-            accept="image/*"
-            className="block w-full border border-dashed border-gray-400 bg-gray-50 p-3 text-sm text-gray-700 file:mr-4 file:border-0 file:bg-[#14678d] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:border-[#14678d] hover:file:bg-[#012289]"
-          />
-          <p className="mt-1.5 text-xs text-gray-500">
-            Please wait for the upload status to display before submitting the
-            form.
+    <>
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className="w-full border border-gray-200 border-t-4 border-t-[#012289] bg-white shadow-sm"
+      >
+        {/* Header */}
+        <header className="border-b border-gray-200 bg-gray-50 px-5 py-5 sm:px-8">
+          <h2 className="text-xl font-bold text-[#012289]">
+            Please fill out the form
+          </h2>
+          <p className="mt-1 text-sm text-gray-600">
+            Fields marked <span className="text-red-600">*</span> are required.
           </p>
-        </div>
-      </Section>
+        </header>
 
-      {/* 3. Terms & Condition */}
-      <Section number="3" title="Terms & Conditions">
-        <label className="flex items-start gap-3 text-sm leading-relaxed text-gray-800">
-          <input
-            type="checkbox"
-            name="agreed"
-            required
-            className="mt-1 h-4 w-4 shrink-0 accent-[#14678d]"
-          />
-          <span>
-            By clicking the Submit button, I acknowledge that I have read and
-            agree to the collection and use of my personal data by MAXIN, as
-            outlined in its Privacy Policy.
-          </span>
-        </label>
+        {/* 1. Client Information */}
+        <Section number="1" title="Client Information">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-[1fr_10rem]">
+            <Field id="fullName" label="Full Name" required>
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                required
+                placeholder="Last Name, First Name, Middle Name"
+                className={inputClass}
+              />
+            </Field>
+            <Field id="sex" label="Sex" required>
+              <select
+                id="sex"
+                name="sex"
+                required
+                defaultValue=""
+                className={inputClass}
+              >
+                <option value="" disabled>
+                  Select
+                </option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </Field>
+          </div>
 
-        <p className="mt-4 border-l-2 border-[#1a9cc4] pl-4 text-xs leading-relaxed text-gray-600">
-          I consent to receive promotional messages, including SMS, emails, or
-          phone calls, from MAXIN, its affiliates, and subsidiaries, as well as
-          any authorized third-party service providers acting on behalf of
-          MAXIN, in line with the purposes for which my information was
-          collected.
-        </p>
-      </Section>
+          <Field id="registeredName" label="Registered Name (if any)" className="mt-4">
+            <input
+              id="registeredName"
+              name="registeredName"
+              type="text"
+              placeholder="Corporation, Partnership"
+              className={inputClass}
+            />
+          </Field>
 
-      {/* Submit */}
-      <footer className="flex justify-end bg-gray-50 px-5 py-5 sm:px-8">
-        <button
-          type="submit"
-          className="w-full bg-[#012289] px-10 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#14678d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a9cc4] focus-visible:ring-offset-2 sm:w-auto"
-        >
-          Submit
-        </button>
-      </footer>
-    </form>
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-[1fr_10rem]">
+            <Field
+              id="address"
+              label="Permanent Address / Principal Place of Business"
+              required
+            >
+              <input
+                id="address"
+                name="address"
+                type="text"
+                required
+                placeholder="Unit/Floor No., Building, Street, Barangay, City, Province"
+                className={inputClass}
+              />
+            </Field>
+            <Field id="zipCode" label="Zip Code" required>
+              <input
+                id="zipCode"
+                name="zipCode"
+                type="text"
+                inputMode="numeric"
+                required
+                className={inputClass}
+              />
+            </Field>
+          </div>
+
+          <div className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-[11rem_5rem_1fr_1fr]">
+            <Field id="birthday" label="Birthday" required className="col-span-2 lg:col-span-1">
+              <input
+                id="birthday"
+                name="birthday"
+                type="date"
+                max={today}
+                required
+                onChange={onBirthdayChange}
+                className={inputClass}
+              />
+            </Field>
+            <Field id="age" label="Age" required>
+              <input
+                id="age"
+                name="age"
+                type="number"
+                min="0"
+                required
+                value={age}
+                readOnly
+                className={inputClass}
+              />
+            </Field>
+            <Field id="placeOfBirth" label="Place of Birth" required>
+              <input
+                id="placeOfBirth"
+                name="placeOfBirth"
+                type="text"
+                required
+                className={inputClass}
+              />
+            </Field>
+            <Field id="nationality" label="Nationality" required>
+              <input
+                id="nationality"
+                name="nationality"
+                type="text"
+                required
+                className={inputClass}
+              />
+            </Field>
+          </div>
+        </Section>
+
+        {/* 2. Details of property to be insured */}
+        <Section number="2" title="Details of Property to be Insured">
+          <Field id="propertyLocation" label="Location of Property to be Insured" required>
+            <input
+              id="propertyLocation"
+              name="propertyLocation"
+              type="text"
+              required
+              placeholder="Location"
+              className={inputClass}
+            />
+          </Field>
+
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <Field id="email" label="Email Address" required>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="Please input valid email address"
+                className={inputClass}
+              />
+            </Field>
+            <Field id="mobile" label="Mobile Number" required>
+              <input
+                id="mobile"
+                name="mobile"
+                type="tel"
+                required
+                placeholder="Please input valid contact number"
+                className={inputClass}
+              />
+            </Field>
+          </div>
+
+          <fieldset className="mt-4">
+            <legend className={labelClass}>Use of Property</legend>
+            <div className="flex flex-wrap items-center gap-2">
+              {["Commercial", "Warehouse", "Residence"].map((use) => (
+                <label key={use} className="cursor-pointer">
+                  <input
+                    type="checkbox"
+                    name="propertyUse"
+                    value={use}
+                    className="peer sr-only"
+                  />
+                  <span className="block border border-gray-300 bg-white px-4 py-2 text-sm text-gray-700 transition-colors hover:border-[#14678d] peer-checked:border-[#14678d] peer-checked:bg-[#14678d] peer-checked:text-white peer-focus-visible:ring-2 peer-focus-visible:ring-[#1a9cc4]/40">
+                    {use}
+                  </span>
+                </label>
+              ))}
+              <label className="flex items-center gap-2 text-sm font-semibold text-[#14678d]">
+                Others:
+                <input
+                  type="text"
+                  name="propertyUseOther"
+                  className="w-40 border-b border-gray-400 bg-transparent px-1 py-1.5 text-sm font-normal text-gray-900 focus:border-[#1a9cc4] focus:outline-none"
+                />
+              </label>
+            </div>
+          </fieldset>
+
+          <div className="mt-4">
+            <label htmlFor="supportingImage" className={labelClass}>
+              Supporting Image
+            </label>
+            <input
+              id="supportingImage"
+              name="supportingImage"
+              type="file"
+              accept="image/*"
+              className="block w-full border border-dashed border-gray-400 bg-gray-50 p-3 text-sm text-gray-700 file:mr-4 file:border-0 file:bg-[#14678d] file:px-4 file:py-2 file:text-sm file:font-semibold file:text-white hover:border-[#14678d] hover:file:bg-[#012289]"
+            />
+            <p className="mt-1.5 text-xs text-gray-500">
+              Optional. Images only, up to 5MB.
+            </p>
+          </div>
+        </Section>
+
+        {/* 3. Terms & Condition */}
+        <Section number="3" title="Terms & Conditions">
+          <label className="flex items-start gap-3 text-sm leading-relaxed text-gray-800">
+            <input
+              type="checkbox"
+              name="agreed"
+              required
+              className="mt-1 h-4 w-4 shrink-0 accent-[#14678d]"
+            />
+            <span>
+              By clicking the Submit button, I acknowledge that I have read and
+              agree to the collection and use of my personal data by MAXIN, as
+              outlined in its Privacy Policy.
+            </span>
+          </label>
+
+          <p className="mt-4 border-l-2 border-[#1a9cc4] pl-4 text-xs leading-relaxed text-gray-600">
+            I consent to receive promotional messages, including SMS, emails, or
+            phone calls, from MAXIN, its affiliates, and subsidiaries, as well as
+            any authorized third-party service providers acting on behalf of
+            MAXIN, in line with the purposes for which my information was
+            collected.
+          </p>
+        </Section>
+
+        {/* Submit */}
+        <footer className="flex justify-end bg-gray-50 px-5 py-5 sm:px-8">
+          <button
+            type="submit"
+            className="w-full bg-[#012289] px-10 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-[#14678d] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1a9cc4] focus-visible:ring-offset-2 sm:w-auto"
+          >
+            Submit
+          </button>
+        </footer>
+      </form>
+
+      {showCaptcha && (
+        <CaptchaModal
+          onToken={handleToken}
+          onClose={() => setShowCaptcha(false)}
+          busy={busy}
+          error={captchaError}
+        />
+      )}
+      {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
+    </>
   );
 }
