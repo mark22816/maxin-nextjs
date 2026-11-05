@@ -45,7 +45,7 @@ export default function GetQuote() {
 
                 <div className="w-full justify-center">
                     <Container>
-                        <div className="relative z-10 py-12 lg:w-1/2 lg:pr-1 text-center lg:text-justify">
+                        <div className="relative z-10 py-12 lg:w-1/2 lg:pr-1 text-center ">
                             <h1 className="mb-6 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight text-[#1d688b]">
                                 <span className="block">Get Insurance Solutions</span>
                                 <span className="block ">Tailored to Your Needs</span>
