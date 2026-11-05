@@ -76,6 +76,9 @@ export default function Services() {
       className="relative min-h-[400px] overflow-hidden bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(${IMAGES.servicesBackground})` }}
     >
+      {/* Background transparency overlay: change the number after the slash (0-100) */}
+      <div className="absolute inset-0 bg-[#012289]/85" />
+
       {/* Decorative background elements */}
       <div className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-cyan-400/10 blur-3xl" />
       <div className="absolute -bottom-40 -left-32 h-[450px] w-[450px] rounded-full bg-blue-300/10 blur-3xl" />
@@ -173,4 +176,3 @@ export default function Services() {
     </section>
   );
 }
-

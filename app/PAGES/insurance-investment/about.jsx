@@ -32,6 +32,8 @@ export default function About (){
 
   return (
     <section
+      id="about"
+      aria-labelledby="about-heading"
       ref={sectionRef}
       className="w-full py-16 sm:py-20 lg:py-24 bg-white overflow-hidden"
     >
@@ -45,16 +47,15 @@ export default function About (){
               : "opacity-0 -translate-x-12"
           }`}
         >
-          <div className="absolute -top-4 -left-4 w-full h-full border-2 border-[#012289]/90 rounded-[10px] hidden sm:block" />
           <Image
             src={IMAGES.aboutimage}
-            width={300}
-            height={400}
-            alt="About MAXIN"
-            className="relative w-full h-[280px] sm:h-[360px] md:h-[420px] rounded-[10px] object-cover shadow-xl"
+            width={1200}
+            height={900}
+            quality={90}
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            alt="MAXIN insurance agency helping clients in the Philippines compare and choose insurance coverage"
+            className="relative w-full aspect-[4/3] rounded-2xl object-cover object-center shadow-lg"
           />
-
-          
         </div>
 
         {/* Text (left on large screens) */}
@@ -66,40 +67,44 @@ export default function About (){
           }`}
         >
 
-          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#002288] mb-4 leading-tight">
+          <h2
+            id="about-heading"
+            className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#002288] mb-5 leading-tight"
+          >
             Find optimal insurance solutions with MAXIN
-          </h3>
+          </h2>
 
-          <p className="text-[16px] sm:text-[16px] lg:text-lg text-justify  text-gray-500  mb-6">
-            At MAXIN, we make it easy to find great insurance in the Philippines.
-            We work with top insurance companies to compare all your options.
-            Trust us to help you pick the right insurance for you, so you can
-            feel secure. With our expertise and support, you'll have peace of
-            mind knowing you're making the best choice for your needs.
+          <p className="max-w-prose text-base sm:text-lg leading-8 text-left text-gray-700 mb-8">
+            Looking for insurance or ways to grow your savings? MAXIN makes it simple, with trusted partners and advice made for you.
           </p>
 
           {/* Highlight points */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          <ul className="grid grid-cols-1 gap-4 mb-8">
             {[
               "Compare top insurers side by side",
               "Personalized coverage guidance",
               "Fast, hassle-free application",
               "Dedicated support every step",
             ].map((point, i) => (
-              <div
+              <li
                 key={i}
-                className={`flex items-start gap-2 transition-all duration-700 ease-out ${
+                className={`flex items-start gap-3 transition-all duration-700 ease-out ${
                   isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-4"
                 }`}
                 style={{ transitionDelay: isVisible ? `${300 + i * 120}ms` : "0ms" }}
               >
-                <CheckCircle2 className="w-5 h-5 text-[#002288] shrink-0 mt-0.5" />
-                <span className="text-[16px] text-gray-500">{point}</span>
-              </div>
+                <CheckCircle2
+                  aria-hidden="true"
+                  className="w-5 h-5 text-[#002288] shrink-0 mt-1"
+                />
+                <span className="min-w-0 text-base sm:text-[17px] leading-7 font-medium text-gray-700">
+                  {point}
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
 
         </div>
       </Container>

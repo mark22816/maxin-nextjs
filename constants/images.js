@@ -37,6 +37,7 @@ export const IMAGES = {
   Product15: "/images/INVESTMENT.png",
 
   GetQuote: "/images/getquote.png",
+  Claims: "/images/claims.jpg",
 
 
 

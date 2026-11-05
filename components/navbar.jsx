@@ -20,13 +20,15 @@ export default function Navbar() {
             <Container>
                 <div className="flex justify-between items-center h-12 sm:h-18 ">
                     <div>
-                        <Image
-                            src="/images/MAXIN.png"
-                            width={300}
-                            height={100}
-                            alt="Logo"
-                            className="h-10 sm:h-12 md:h-14 w-auto"
-                        />
+                        <Link href="/PAGES/insurance-investment" aria-label="MAXIN home">
+                            <Image
+                                src="/images/MAXIN.png"
+                                width={300}
+                                height={100}
+                                alt="Logo"
+                                className="h-10 sm:h-12 md:h-14 w-auto"
+                            />
+                        </Link>
                     </div>
 
                     {/* Desktop nav links */}
@@ -67,8 +69,8 @@ export default function Navbar() {
                             </div>
                         </div>
 
-                        <Link  href="/PAGES/get-quote/index" className="text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base">GET QUOTE</Link>
-                        <a href="#claims" className="text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base">CLAIMS</a>
+                        <Link href="/PAGES/get-quote/index" className="text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base">GET QUOTE</Link>
+                        <Link href="/PAGES/claims/index" className="text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base">CLAIMS</Link>
 
                         {/* Career */}
                         <a href="#career" className="text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base">
@@ -78,6 +80,7 @@ export default function Navbar() {
 
                     {/* Hamburger */}
                     <button
+                        aria-label={mobileMenuIsOpen ? "Close menu" : "Open menu"}
                         className="md:hidden text-[#012289] hover:text-[#0056b3]"
                         onClick={() => setMobileMenuIsOpen((prev) => !prev)}
                     >
@@ -126,13 +129,13 @@ export default function Navbar() {
                             )}
                         </div>  
 
-                        <Link href= "/PAGES/get-quote/index" onClick={() => setMobileMenuIsOpen(false)} className="block text-[#012289] hover:text-[#0056b3] font-bold text-sm">
+                        <Link href="/PAGES/get-quote/index" onClick={() => setMobileMenuIsOpen(false)} className="block text-[#012289] hover:text-[#0056b3] font-bold text-sm">
                             GET QUOTE
                         </Link>
 
-                        <a href="#claims" onClick={() => setMobileMenuIsOpen(false)} className="block text-[#012289] hover:text-[#0056b3] font-bold text-sm">
+                        <Link href="/PAGES/claims/index" onClick={() => setMobileMenuIsOpen(false)} className="block text-[#012289] hover:text-[#0056b3] font-bold text-sm">
                             CLAIMS
-                        </a>
+                        </Link>
 
                         {/* Career (mobile) */}
                         <a href="#career" onClick={() => setMobileMenuIsOpen(false)} className="block text-[#012289] hover:text-[#0056b3] font-bold text-sm">

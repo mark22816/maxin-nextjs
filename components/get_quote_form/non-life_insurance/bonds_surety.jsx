@@ -101,7 +101,7 @@ export default function BondSurety(){
     >
       {/* Header */}
       <header className="border-b border-gray-200 bg-gray-50 px-5 py-5 sm:px-8">
-       <h2 className="mb-4 text-xl font-bold text-[#012289]">
+       <h2 className=" text-xl font-bold text-[#012289]">
           Please fill out the form
         </h2>
         <p className="mt-1 text-sm text-gray-600">

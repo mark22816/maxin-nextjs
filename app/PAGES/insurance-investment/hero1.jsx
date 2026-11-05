@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowRight,
   BookOpenText,
@@ -92,21 +93,27 @@ const slides = [
             </h1>
 
             <p className="text-gray-600 text-base sm:text-lg leading-8 max-w-xl mx-auto lg:mx-0 mb-8">
-              MAXIN connects you to trusted insurance partners and tailored
-              investment solutions, helping you turn today’s protection into
-              tomorrow’s possibilities.
+              Find the right insurance and investment plan. With local
+              expertise and trusted partners, MAXIN makes it easy to compare
+              your options and get started today.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4 mb-10">
-              <button className="group w-full sm:w-auto px-7 py-4 rounded-xl bg-[#002288] text-white font-semibold shadow-lg shadow-blue-900/20 hover:bg-[#1a9cc4] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+              <Link
+                href="/PAGES/get-quote/index"
+                className="group w-full sm:w-auto px-7 py-4 rounded-xl bg-[#002288] text-white font-semibold shadow-lg shadow-blue-900/20 hover:bg-[#1a9cc4] hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2"
+              >
                 <span>Get a Quote</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
 
-              <button className="group w-full sm:w-auto px-7 py-4 rounded-xl border border-blue-200 bg-white text-[#002288] font-semibold hover:bg-blue-50 hover:border-blue-300 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2">
+              <Link
+                href="/about-us"
+                className="group w-full sm:w-auto px-7 py-4 rounded-xl border border-blue-200 bg-white text-[#002288] font-semibold hover:bg-blue-50 hover:border-blue-300 hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2"
+              >
                 <BookOpenText className="w-5 h-5" />
                 <span>Learn More</span>
-              </button>
+              </Link>
             </div>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-x-8 gap-y-4 text-sm text-gray-500">
@@ -182,7 +189,3 @@ const slides = [
     </section>
   );
 }
-
-
-
- 
