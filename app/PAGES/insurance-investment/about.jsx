@@ -75,7 +75,11 @@ export default function About (){
           </h2>
 
           <p className="max-w-prose text-base sm:text-lg leading-8 text-left text-gray-700 mb-8">
-            Looking for insurance or ways to grow your savings? MAXIN makes it simple, with trusted partners and advice made for you.
+            At MAXIN, we make it easy to find great insurance in the Philippines.
+            We work with top insurance companies to compare all your options.
+            Trust us to help you pick the right insurance for you, so you can
+            feel secure. With our expertise and support, you'll have peace of
+            mind knowing you're making the best choice for your needs.
           </p>
 
           {/* Highlight points */}
