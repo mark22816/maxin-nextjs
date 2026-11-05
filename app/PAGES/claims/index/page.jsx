@@ -57,9 +57,13 @@ export default function GetQuote() {
                             </h1>
 
                             <p className="text-justify text-base sm:text-lg leading-8 max-w-xl mx-auto lg:mx-0 mb-8 text-gray-700 ">
-                                Insurance claims can be complex, but we simplify the process for you. Whether it's Life, HMO, Non-Life or Health Insurance, we ensure a smooth experience.
-                                From securing life insurance benefits to settling property damage claims swiftly, we're dedicated to efficiency and professionalism.
-                                Trust us with your insurance needs; your claims are in capable hands. Don't wait until it's too late. Secure your future with MAXIN Insurance today!
+                                <span className="block">
+                                    Insurance claims can be complex, but we simplify the process for you. Whether it's Life, HMO, Non-Life or Health Insurance, we ensure a smooth experience.
+                                    From securing life insurance benefits to settling property damage claims swiftly, we're dedicated to efficiency and professionalism.
+                                </span>
+                                <span className="block mt-4">
+                                    Trust us with your insurance needs; your claims are in capable hands. Don't wait until it's too late. Secure your future with MAXIN Insurance today!
+                                </span>
                             </p>
                         </div>
                     </Container>
