@@ -45,11 +45,11 @@ export default function GetQuote() {
 
                 <div className="w-full justify-center">
                     <Container>
-                        <div className="relative z-10 py-12 lg:w-1/2 lg:pr-12 text-center">
-                       <h1 className="mb-6 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight text-[#1d688b]">
-                        <span className="">Get Insurance Solutions</span>
-                        <span className="block text-[#012289]">Tailored to Your Needs</span>
-                       </h1>
+                        <div className="relative z-10 py-12 lg:w-1/2 lg:pr-1 text-center lg:text-justify">
+                            <h1 className="mb-6 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight text-[#1d688b]">
+                                <span className="block">Get Insurance Solutions</span>
+                                <span className="block ">Tailored to Your Needs</span>
+                            </h1>
 
                             <p className="text-justify text-base sm:text-lg leading-8 max-w-xl mx-auto lg:mx-0 mb-8 text-gray-700 ">
                                 Fill out our quick and easy forms to apply for insurance or request a service. Our team will guide you every step of the way, ensuring you have the protection you need.
