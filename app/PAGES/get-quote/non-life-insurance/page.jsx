@@ -65,7 +65,7 @@ export default function NoneLifeInsurance() {
                   type="button"
                   onClick={() => setSelected(name)}
                   aria-pressed={isActive}
-                  className={`w-full px-7 py-2.5 text-left text-base font-bold transition-colors ${
+                  className={`w-full px-7 py-2.5 text-left text-lg font-bold transition-colors ${
                     isActive
                       ? "bg-[#14678d] text-white"
                       : "bg-gray-200 text-[#14678d] hover:bg-gray-300"

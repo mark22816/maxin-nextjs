@@ -14,7 +14,7 @@ export default function TopBar() {
             className="flex items-center gap-1.5 text-white hover:text-gray-300 font-semibold text-xs sm:text-sm transition-colors"
           >
             <Building2 className="w-4 h-4" strokeWidth={2} />
-            About Us
+            Career
           </Link>
 
           <Link

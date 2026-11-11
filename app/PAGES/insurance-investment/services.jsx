@@ -98,7 +98,7 @@ export default function Services() {
             Our <span className="text-white">Services</span>
           </h2>
 
-          <p className="mx-auto max-w-3xl text-base leading-7 text-white sm:text-lg sm:leading-8">
+          <p className="mx-auto max-w-3xl text-[18px] leading-7 text-white sm:text-[20px] sm:leading-8">
             Trust our knowledge and commitment to guide you through the
             changing world of insurance and investments, building a strong
             foundation for your future wealth, protection, and security.
@@ -146,7 +146,7 @@ export default function Services() {
                     {item.title}
                   </h3>
 
-                  <p className="mb-7 flex-1 text-[15px] leading-7 text-[#607086]">
+                  <p className="mb-7 flex-1 text-[18px] leading-7 text-[#607086]">
                     {item.p}
                   </p>
 

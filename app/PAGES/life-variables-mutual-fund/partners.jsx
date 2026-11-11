@@ -15,7 +15,7 @@ export default function Content() {
         
         {/* Small Label */}
         
-        <h3 className="text-center text-[clamp(24px,4vw,38px)] font-bold leading-tight text-[#2c7ba3]">
+        <h3 className="text-center text-[clamp(24px,4vw,38px)] font-bold leading-tight text-[#1a9cc4]">
           Our Life, Variable Life & Mutual Funds Partners
         </h3>
 

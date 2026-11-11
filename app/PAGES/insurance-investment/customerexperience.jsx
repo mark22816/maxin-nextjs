@@ -51,12 +51,12 @@ export default function CustomerExperience() {
           </div>
 
           {/* Quote */}
-          <p className="text-[16px]  sm:text-xl md:text-lg font-bold text-[#012289] text-justify leading-relaxed mb-6 transition-all duration-300">
+          <p className="text-[18px]  sm:text-xl md:text-lg font-bold text-[#012289] text-justify leading-relaxed mb-6 transition-all duration-300">
             "{current.quote}"
           </p>
 
           {/* Name / Title */}
-          <p className="text-sm sm:text-base text-gray-400 mb-10">
+          <p className="text-sm sm:text-lg text-gray-400 mb-10">
             {current.name} — {current.title}
           </p>
 

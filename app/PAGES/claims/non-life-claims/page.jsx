@@ -442,7 +442,7 @@ export default function ClaimsAccordion() {
                                     isOpen ? "bg-[#d6e6fb]" : "bg-slate-50 hover:bg-[#eaf1fc]"
                                 }`}
                             >
-                                <span className="text-base font-bold uppercase text-[#1d4e9e] md:text-[18px]">
+                                <span className="text-lg font-bold uppercase text-[#1d4e9e] md:text-[18px]">
                                     {claim.title}
                                 </span>
 
@@ -484,17 +484,17 @@ export default function ClaimsAccordion() {
                                         {claim.sections.map((section, i) => (
                                             <div key={i} className={i > 0 ? "mt-6" : ""}>
                                                 {section.heading && (
-                                                    <h3 className="mb-4 text-base font-bold uppercase text-black">
+                                                    <h3 className="mb-4 text-lg font-bold uppercase text-black">
                                                         {section.heading}
                                                     </h3>
                                                 )}
                                                 {section.subheading && (
-                                                    <h3 className="mb-4 text-base font-bold  text-black">
+                                                    <h3 className="mb-4 text-lg font-bold  text-black">
                                                         {section.subheading}
                                                     </h3>
                                                 )}
 
-                                                <ul className="list-disc space-y-1 pl-6 text-gray-900 marker:text-black">
+                                                <ul className="list-disc space-y-1 pl-6 text-lg text-gray-900 marker:text-black">
                                                     {section.items.map((item) => (
                                                         <li key={item}>{item}</li>
                                                     ))}

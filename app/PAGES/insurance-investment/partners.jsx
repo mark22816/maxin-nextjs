@@ -15,7 +15,6 @@ import Container from "../../../Layout/container";
 const productRows = [
   {
     label: "Life, Variable Life & Mutual Funds",
-    icon: FaUmbrella,
     description:
       "Solutions designed to help protect your loved ones and build your financial future.",
     partners: [
@@ -25,7 +24,6 @@ const productRows = [
   },
   {
     label: "Non-Life Insurance",
-    icon: FaCarSide,
     description:
       "Reliable protection for your assets, business, vehicles, and other valuable investments.",
     partners: [
@@ -40,7 +38,6 @@ const productRows = [
   },
   {
     label: "HMO / Health Insurance",
-    icon: FaHeartbeat,
     live: true,
     description:
       "Flexible healthcare options that help you and your family access quality care with confidence.",
@@ -55,7 +52,6 @@ const productRows = [
   },
   {
     label: "Consulting & Advisory Services",
-    icon: FaHandshake,
     description:
       "Professional guidance and strategic solutions to support your business and financial goals.",
     partners: [
@@ -106,13 +102,7 @@ export default function ProductsAndPartners() {
                   {/* Category */}
                   <div className="flex items-start gap-5">
                     {/* Icon */}
-                    <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl bg-[#14678d]/10 transition-all duration-300 group-hover:bg-[#14678d]">
-                      <Icon
-                        className={`text-2xl text-[#14678d] transition-colors duration-300 group-hover:text-white ${
-                          row.live ? "animate-heartbeat" : ""
-                        }`}
-                      />
-                    </div>
+                    
 
                     {/* Text */}
                     <div className="min-w-0 flex-1">

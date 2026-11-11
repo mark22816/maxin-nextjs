@@ -58,7 +58,7 @@ function ProductRow({ image, title, description, reverse }) {
         }`}
       >
         <h3 className="text-[20px] font-bold text-[#1a6fa0] mb-4 leading-tight">{title}</h3>
-        <p className="text-[16px] lg:text-lg text-justify text-gray-500 mb-6">{description}</p>
+        <p className="text-[18px]  text-justify text-gray-500 mb-6">{description}</p>
       </div>
     </div>
   );

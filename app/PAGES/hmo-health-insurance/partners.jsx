@@ -37,7 +37,7 @@ export default function Content() {
       <Container className="relative flex w-full flex-col items-center">
         {/* Section Heading */}
         <div className="mb-10 text-center sm:mb-14">
-          <h3 className="text-[clamp(24px,4vw,38px)] font-bold leading-tight text-[#2c7ba3]">
+          <h3 className="text-[clamp(24px,4vw,38px)] font-bold leading-tight text-[#1a9cc4]">
             Our HMO / Health Insurance Partners
           </h3>
 

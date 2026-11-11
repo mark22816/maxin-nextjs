@@ -6,19 +6,21 @@ import { ShieldCheck, HeartHandshake, Stethoscope, CheckCircle2 } from "lucide-r
 import Container from "../../../../Layout/container";
 import { IMAGES } from "../../../../constants/images";
 import ClaimsAccordion from "../non-life-claims/page";
+import LifeClaims from "../life-claims/page";
+import HMOClaims from "../HMO/page";
 
 export default function GetQuote() {
-    const [active, setActive] = useState("life");
+    const [active, setActive] = useState("nonlife");
 
     const links = [
         {
-            key: "life",
+            key: "nonlife",
             label: "Non-Life Claims",
             hint: "Property, fire, motor and more",
             Icon: ShieldCheck,
         },
         {
-            key: "nonlife",
+            key: "life",
             label: "Life Claims",
             hint: "Benefits for you and your family",
             Icon: HeartHandshake,
@@ -30,6 +32,17 @@ export default function GetQuote() {
             Icon: Stethoscope,
         },
     ];
+
+    // Content shown below the buttons (add the HMO page here when it's ready)
+    const content = {
+        nonlife: (
+            <Container>
+                <ClaimsAccordion />
+            </Container>
+        ),
+        life: <LifeClaims />,
+        hmo: <HMOClaims />
+    };
 
     return (
         <>
@@ -56,7 +69,7 @@ export default function GetQuote() {
                                 Claims
                             </h1>
 
-                            <p className="text-justify text-base sm:text-lg leading-8 max-w-xl mx-auto lg:mx-0 mb-8 text-gray-700 ">
+                            <p className="text-justify text-base sm:text-[20px] leading-8 max-w-xl mx-auto lg:mx-0 mb-8 text-gray-700 ">
                                 <span className="block">
                                     Insurance claims can be complex, but we simplify the process for you. Whether it's Life, HMO, Non-Life or Health Insurance, we ensure a smooth experience.
                                     From securing life insurance benefits to settling property damage claims swiftly, we're dedicated to efficiency and professionalism.
@@ -70,16 +83,14 @@ export default function GetQuote() {
                 </div>
             </section>
 
-            {/* Buttons: switch the form below */}
+            {/* Buttons: switch the content below */}
             <section className="w-full bg-white py-10">
                 <Container>
                     <div className="flex flex-col items-center py-12 text-center">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#1d688b]">
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold  tracking-wide text-[#1a9cc4]">
                             Claims Requirements
                         </h2>
-                        <p className="mt-4 max-w-md text-base text-gray-600">
-                            What type of claim are you filing? Tap one to see what you need.
-                        </p>
+                        
                     </div>
 
                     <div
@@ -139,9 +150,7 @@ export default function GetQuote() {
             </section>
 
             <section className="w-full bg-white py-10 mt-20">
-                <Container>
-                    <ClaimsAccordion />
-                </Container>
+                {content[active]}
             </section>
         </>
     );

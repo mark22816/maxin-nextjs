@@ -41,41 +41,78 @@ export default function Navbar() {
                         </div>
 
                         {/* Products & Services dropdown */}
-                        <div className="relative">
+                        <div
+                            className="relative"
+                            onMouseEnter={() => setOpenDropdown('products')}
+                            onMouseLeave={() => setOpenDropdown(null)}
+                        >
                             <button
-                                onClick={(e) => toggleDropdown(e, 'products')}
+                                onClick={() => setOpenDropdown('products')}
                                 className="flex items-center gap-1 text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base"
                             >
                                 PRODUCT & SERVICES
                                 <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${openDropdown === 'products' ? 'rotate-180' : ''}`} />
                             </button>
 
-                            <div onClick={() => setOpenDropdown(null)}
+                            <div
+                                onClick={() => setOpenDropdown(null)}
                                 className={`
-                                    absolute top-full left-0 mt-2 min-w-64 bg-white shadow-xl rounded-lg
-                                    overflow-hidden transition-all duration-300
+                                    absolute top-full left-0 pt-2 min-w-64 transition-all duration-300
                                     ${openDropdown === 'products' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
                                 `}
                             >
-                                <Link href="/PAGES/life-variables-mutual-fund" className="block px-5 py-3 font-bold text-sm text-[#012289] hover:bg-[#0056b3] hover:text-white">
-                                    Life, Variable Life & Mutual Funds
-                                </Link>
-                                <Link href="/PAGES/non-lifeInsurance" className="block px-5 py-3 font-bold text-sm text-[#012289] hover:bg-[#0056b3] hover:text-white">
-                                    Non-Life Insurance
-                                </Link>
-                                <Link href="/PAGES/hmo-health-insurance" className="block px-5 py-3 font-bold text-sm text-[#012289] hover:bg-[#0056b3] hover:text-white">
-                                    HMO / Health Insurance
-                                </Link>
+                                <div className="bg-white shadow-xl rounded-lg overflow-hidden">
+                                    <Link href="/PAGES/life-variables-mutual-fund" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
+                                        Life, Variable Life & Mutual Funds
+                                    </Link>
+                                    <Link href="/PAGES/non-lifeInsurance" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
+                                        Non-Life Insurance
+                                    </Link>
+                                    <Link href="/PAGES/hmo-health-insurance" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
+                                        HMO / Health Insurance
+                                    </Link>
+                                </div>
                             </div>
                         </div>
 
                         <Link href="/PAGES/get-quote/index" className="text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base">GET QUOTE</Link>
                         <Link href="/PAGES/claims/index" className="text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base">CLAIMS</Link>
 
-                        {/* Career */}
-                        <a href="#career" className="text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base">
-                            CAREER
-                        </a>
+                        {/* About Us dropdown */}
+                        <div
+                            className="relative"
+                            onMouseEnter={() => setOpenDropdown('about')}
+                            onMouseLeave={() => setOpenDropdown(null)}
+                        >
+                            <button
+                                onClick={() => setOpenDropdown('about')}
+                                className="flex items-center gap-1 text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base"
+                            >
+                                ABOUT US
+                                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${openDropdown === 'about' ? 'rotate-180' : ''}`} />
+                            </button>
+
+                            <div
+                                onClick={() => setOpenDropdown(null)}
+                                className={`
+                                    absolute top-full left-0 pt-2 min-w-64 transition-all duration-300
+                                    ${openDropdown === 'about' ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}
+                                `}
+                            >
+                                <div className="bg-white shadow-xl rounded-lg overflow-hidden">
+                                    <Link href="/PAGES/about-us/who-we-are" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
+                                        Who We Are
+                                    </Link>
+                                    <Link href="/PAGES/about-us/meet-our-team" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
+                                        Meet Our Team
+                                    </Link>
+                                    <Link href="/PAGES/about-us/offices" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
+                                        Offices
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     {/* Hamburger */}
@@ -106,7 +143,7 @@ export default function Navbar() {
                            HOME
                         </Link>
 
-                        <div>
+                        <div onMouseLeave={() => setOpenDropdown(null)}>
                             <button
                                 onClick={(e) => toggleDropdown(e, 'products-mobile')}
                                 className="flex items-center justify-between w-full text-[#012289] hover:text-[#0056b3] font-bold text-sm"
@@ -137,10 +174,28 @@ export default function Navbar() {
                             CLAIMS
                         </Link>
 
-                        {/* Career (mobile) */}
-                        <a href="#career" onClick={() => setMobileMenuIsOpen(false)} className="block text-[#012289] hover:text-[#0056b3] font-bold text-sm">
-                            CAREER
-                        </a>
+                        <div onMouseLeave={() => setOpenDropdown(null)}>
+                            <button
+                                onClick={(e) => toggleDropdown(e, 'about-mobile')}
+                                className="flex items-center justify-between w-full text-[#012289] hover:text-[#0056b3] font-bold text-sm"
+                            >
+                                ABOUT US
+                                <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${openDropdown === 'about-mobile' ? 'rotate-180' : ''}`} />
+                            </button>
+                            {openDropdown === 'about-mobile' && (
+                                <div className="pl-0 mt-2 space-y-2">
+                                    <Link href="/PAGES/about-us/who-we-are" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
+                                        Who We Are
+                                    </Link>
+                                    <Link href="/PAGES/about-us/meet-our-team" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
+                                        Meet Our Team
+                                    </Link>
+                                    <Link href="/PAGES/about-us/offices" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
+                                        Offices
+                                    </Link>
+                                </div>
+                            )}
+                        </div>  
                     </div>
                 </div>
             )}
