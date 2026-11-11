@@ -146,7 +146,7 @@ export default function Services() {
                     {item.title}
                   </h3>
 
-                  <p className="mb-7 flex-1 text-[18px] leading-7 text-[#607086]">
+                  <p className="mb-7 flex-1 text-[16px] leading-7 text-[#607086]">
                     {item.p}
                   </p>
 

@@ -88,7 +88,7 @@ export default function Navbar() {
                                 onClick={() => setOpenDropdown('about')}
                                 className="flex items-center gap-1 text-[#012289] hover:text-[#0056b3] font-bold text-sm lg:text-base"
                             >
-                                ABOUT US
+                                ABOUT 
                                 <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${openDropdown === 'about' ? 'rotate-180' : ''}`} />
                             </button>
 
@@ -101,7 +101,7 @@ export default function Navbar() {
                             >
                                 <div className="bg-white shadow-xl rounded-lg overflow-hidden">
                                     <Link href="/PAGES/about-us/who-we-are" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
-                                        Who We Are
+                                        About Us
                                     </Link>
                                     <Link href="/PAGES/about-us/meet-our-team" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
                                         Meet Our Team
@@ -179,13 +179,13 @@ export default function Navbar() {
                                 onClick={(e) => toggleDropdown(e, 'about-mobile')}
                                 className="flex items-center justify-between w-full text-[#012289] hover:text-[#0056b3] font-bold text-sm"
                             >
-                                ABOUT US
+                                ABOUT 
                                 <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${openDropdown === 'about-mobile' ? 'rotate-180' : ''}`} />
                             </button>
                             {openDropdown === 'about-mobile' && (
                                 <div className="pl-0 mt-2 space-y-2">
                                     <Link href="/PAGES/about-us/who-we-are" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
-                                        Who We Are
+                                        About Us
                                     </Link>
                                     <Link href="/PAGES/about-us/meet-our-team" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
                                         Meet Our Team
