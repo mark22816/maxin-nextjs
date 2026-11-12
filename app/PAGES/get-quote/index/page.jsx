@@ -53,7 +53,7 @@ export default function GetQuote() {
                 <div className="w-full">
                     <Container>
                         <div className="relative z-10 py-12 text-center lg:w-1/2 lg:pr-1">
-                            <h2 className="mb-6 text-4xl sm:text-5xl text-center lg:text-justify font-semibold leading-tight tracking-tight text-white">
+                            <h2 className="mb-6 text-4xl sm:text-5xl text-center  font-semibold leading-tight tracking-tight text-white">
                                 <span className="block">Get Insurance Solutions</span>
                                 <span className="block ">Tailored to Your Needs</span>
                             </h2>
