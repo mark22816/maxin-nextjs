@@ -46,7 +46,7 @@ const directors = [
 ];
 
 export default function BoardOfDirectors() {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const active = directors[activeIndex];
   const paragraphs = Array.isArray(active.bio) ? active.bio : [active.bio];
 
