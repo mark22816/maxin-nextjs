@@ -31,17 +31,19 @@ const directors = [
     name: "Rhea R. Mirante",
     role: "Manager",
     image: "/images/rheah.png",
-    bio: ["Rhealyn is currently the Manager of MAXIN Insurance Agency. She is a home grown employee having rose from the ranks. She is well adept at both marketing and operational agency matters. She leads the team that focuses on life, investment, health and corporate solutions. She passed the traditional life insurance, and variable life insurance representing AXA given by the Insurance Commission. Rhea has completed trainings in Personal Leadership, The Art of Business Communications, and Leadership Workshop on Supervisory Development Program for Managers and Supervisors sponsored by Machica Group and Philippine Chamber of Commerce and Industry.",
-         "In 2021, she was hailed 'Manager of the Year' during Machica Group's annual awards. In 2022, the company bestowed her '10-year Service Loyalty Award. Previously, she has been recognized as Peak Performer (2018), Team Leadership (Chairman's Award 2017), Special Award on Regulatory Reporting (2016). Her outstanding customer care approach has been developed across her affiliations with Machica Group and Taytay sa Kauswagan (TSK). She was a former Project Unit Supervisor at TSK. Ms. Mirante is a graduate of BS in Business Administration from Eastern Visayas State University.",
-         ]
+    bio: [
+      "Rhealyn is currently the Manager of MAXIN Insurance Agency. She is a home grown employee having rose from the ranks. She is well adept at both marketing and operational agency matters. She leads the team that focuses on life, investment, health and corporate solutions. She passed the traditional life insurance, and variable life insurance representing AXA given by the Insurance Commission. Rhea has completed trainings in Personal Leadership, The Art of Business Communications, and Leadership Workshop on Supervisory Development Program for Managers and Supervisors sponsored by Machica Group and Philippine Chamber of Commerce and Industry.",
+      "In 2021, she was hailed 'Manager of the Year' during Machica Group's annual awards. In 2022, the company bestowed her '10-year Service Loyalty Award. Previously, she has been recognized as Peak Performer (2018), Team Leadership (Chairman's Award 2017), Special Award on Regulatory Reporting (2016). Her outstanding customer care approach has been developed across her affiliations with Machica Group and Taytay sa Kauswagan (TSK). She was a former Project Unit Supervisor at TSK. Ms. Mirante is a graduate of BS in Business Administration from Eastern Visayas State University.",
+    ],
   },
   {
     name: "Zebediah Amicane R. Duran",
     role: "Agency Dev't & Sales Officer",
     image: "/images/deah.png",
-    bio: ["Zebediah is currently the Agency Development and Sales Officer at MAXIN Insurance Agency, where she plays a key role in advisors' recruitment, driving business growth, and strengthening client relationships. With a strong background in agency development, service, and operations, she is dedicated to expanding the agency's network by identifying and onboarding talented insurance professionals while ensuring seamless service delivery to clients. In 2024, she completed a Leadership Workshop sponsored by the Machica Group. She is also a licensee of AXA Philippines.",
-         "She earned a Bachelor of Science in Home Arts and Entrepreneurship at Leyte Normal University and obtained a teaching certificate from Leyte Colleges. With her expertise in team development, sales strategies, and client engagement, she contributes significantly to the agency's mission of providing quality insurance solutions while fostering a dynamic and high-performing workforce.",
-      ]
+    bio: [
+      "Zebediah is currently the Agency Development and Sales Officer at MAXIN Insurance Agency, where she plays a key role in advisors' recruitment, driving business growth, and strengthening client relationships. With a strong background in agency development, service, and operations, she is dedicated to expanding the agency's network by identifying and onboarding talented insurance professionals while ensuring seamless service delivery to clients. In 2024, she completed a Leadership Workshop sponsored by the Machica Group. She is also a licensee of AXA Philippines.",
+      "She earned a Bachelor of Science in Home Arts and Entrepreneurship at Leyte Normal University and obtained a teaching certificate from Leyte Colleges. With her expertise in team development, sales strategies, and client engagement, she contributes significantly to the agency's mission of providing quality insurance solutions while fostering a dynamic and high-performing workforce.",
+    ],
   },
 ];
 
@@ -86,9 +88,11 @@ export default function BoardOfDirectors() {
 
               {/* Description */}
               <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-white sm:text-[18px] text-center">
-                Our team of dedicated professionals brings years of industry experience, expertise, and integrity 
-                to deliver personalized insurance and investment solutions. We are committed to guiding you every 
-                step of the way toward a more secure future and greater financial confidence.
+                At the heart of our insurance and investment company is a team of dedicated professionals,
+                each committed to providing personalized solutions and expert guidance. With years of experience in the industry,
+                our team combines knowledge, integrity, and a passion for helping clients achieve their financial goals.
+                Whether it’s protecting what matters most or building a secure future, we’re here to ensure that every step of your journey is
+                supported by professionals you can trust.
                 <span>
                   <br />
                 </span>
@@ -142,7 +146,7 @@ export default function BoardOfDirectors() {
                   type="button"
                   onClick={() => setActiveIndex(i)}
                   aria-pressed={isActive}
-                  className={`relative h-36 overflow-hidden rounded-2xl text-left shadow-lg transition-all duration-300 hover:-translate-y-1 ${
+                  className={`relative h-40 overflow-hidden rounded-2xl text-left shadow-lg transition-all duration-300 hover:-translate-y-1 ${
                     isActive
                       ? "bg-[#012289] text-white"
                       : "bg-white text-slate-900"
@@ -160,7 +164,7 @@ export default function BoardOfDirectors() {
                       {d.role}
                     </span>
                   </div>
-                  <div className="absolute bottom-0 right-0 h-full w-2/5">
+                  <div className="absolute bottom-0 right-0 top-8 w-2/5">
                     <Image
                       src={d.image}
                       alt=""
