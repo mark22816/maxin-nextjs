@@ -88,11 +88,9 @@ export default function BoardOfDirectors() {
 
               {/* Description */}
               <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-white sm:text-[18px] text-center">
-                At the heart of our insurance and investment company is a team of dedicated professionals,
-                each committed to providing personalized solutions and expert guidance. With years of experience in the industry,
-                our team combines knowledge, integrity, and a passion for helping clients achieve their financial goals.
-                Whether it’s protecting what matters most or building a secure future, we’re here to ensure that every step of your journey is
-                supported by professionals you can trust.
+                Our team of dedicated professionals brings years of industry experience, expertise, and integrity 
+                to deliver personalized insurance and investment solutions. We are committed to guiding you every 
+                step of the way toward a more secure future and greater financial confidence.
                 <span>
                   <br />
                 </span>
