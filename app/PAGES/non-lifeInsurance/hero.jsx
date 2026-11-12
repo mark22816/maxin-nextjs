@@ -35,7 +35,7 @@ export default function Hero() {
             </div>
 
             {/* Heading */}
-            <h1 className="mb-6 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+            <h1 className="mb-6 text-4xl sm:text-5xl font-semibold text-white">
               Non-life Insurance
             </h1>
 

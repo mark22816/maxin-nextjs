@@ -82,7 +82,7 @@ export default function BoardOfDirectors() {
             {/* Center Content */}
             <div className="mx-auto max-w-3xl text-center pt-10">
               {/* Heading */}
-              <h1 className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
+              <h1 className="mb-4  text-4xl sm:text-5xl font-semibold text-white">
                 Meet Our Team
               </h1>
 
