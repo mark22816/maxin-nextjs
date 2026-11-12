@@ -69,7 +69,7 @@ export default function About (){
 
           <h2
             id="about-heading"
-            className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#002288] mb-5 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-[#002288] mb-5 leading-tight"
           >
             Find optimal insurance solutions with MAXIN
           </h2>

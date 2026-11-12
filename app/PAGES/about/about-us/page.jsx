@@ -86,7 +86,7 @@ export default function Hero() {
               
 
               {/* Heading */}
-              <h1 className="mb-4 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white">
+              <h1 className="mb-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold text-white">
                 About Us
               </h1>
 
