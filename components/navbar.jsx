@@ -100,13 +100,13 @@ export default function Navbar() {
                                 `}
                             >
                                 <div className="bg-white shadow-xl rounded-lg overflow-hidden">
-                                    <Link href="/PAGES/about-us/who-we-are" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
+                                    <Link href="/PAGES/about/about-us" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
                                         About Us
                                     </Link>
-                                    <Link href="/PAGES/about-us/meet-our-team" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
+                                    <Link href="/PAGES/about/meet-our-team" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
                                         Meet Our Team
                                     </Link>
-                                    <Link href="/PAGES/about-us/offices" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
+                                    <Link href="/PAGES/about/offices" className="block px-5 py-3 font-bold text-base text-[#012289] hover:bg-[#0056b3] hover:text-white">
                                         Offices
                                     </Link>
                                 </div>
@@ -184,13 +184,13 @@ export default function Navbar() {
                             </button>
                             {openDropdown === 'about-mobile' && (
                                 <div className="pl-0 mt-2 space-y-2">
-                                    <Link href="/PAGES/about-us/who-we-are" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
+                                    <Link href="/PAGES/about/about-us" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
                                         About Us
                                     </Link>
-                                    <Link href="/PAGES/about-us/meet-our-team" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
+                                    <Link href="/PAGES/about/meet-our-team" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
                                         Meet Our Team
                                     </Link>
-                                    <Link href="/PAGES/about-us/offices" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
+                                    <Link href="/PAGES/about/offices" onClick={() => setMobileMenuIsOpen(false)} className="block font-bold py-2 pl-3 text-[#012289] hover:bg-[#012289] hover:text-white text-sm">
                                         Offices
                                     </Link>
                                 </div>

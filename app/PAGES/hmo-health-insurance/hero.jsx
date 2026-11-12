@@ -55,7 +55,7 @@ export default function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mx-auto mb-8 max-w-2xl  leading-8 text-white/90 sm:text-[20px] lg:mx-0 text-center sm:text-justify">
+            <p className="mx-auto mb-8 max-w-2xl  leading-8 text-white/90 sm:text-[18px] lg:mx-0 text-center sm:text-justify">
               Discover peace of mind with our HMO/ Health Insurance plan. Enjoy
               low premiums and access to a vast network of providers for
               comprehensive care. Say goodbye to high medical bills and hello to

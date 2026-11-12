@@ -40,7 +40,7 @@ export default function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-white/90 sm:text-[20px] lg:mx-0 text-center text-justify">
+            <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-white/90 sm:text-[18px] lg:mx-0 text-center text-justify">
               Non-life insurance provides financial protection against a wide
               range of risks, including vehicles, travel, homes, businesses,
               marine operations, engineering projects, and liability exposures.

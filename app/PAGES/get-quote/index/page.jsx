@@ -27,9 +27,12 @@ export default function GetQuote() {
 
     return (
         <>
+        
             {/* Hero */}
             <section className="relative min-h-[60vh] w-full overflow-hidden bg-cover bg-center bg-no-repeat mt-20 lg:mt-25 lg:flex lg:items-center">
                 <div className="relative h-64 w-full sm:h-80 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto">
+                    
+                    
                     <Image
                         src={IMAGES.GetQuote}
                         alt="get quote"
@@ -39,19 +42,24 @@ export default function GetQuote() {
                         sizes="auto"
                         className="object-cover object-center"
                     />
-                    {/* White gradient: fades up from the bottom on mobile, left to right on desktop */}
-                    <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-white via-white/30 to-transparent lg:bg-linear-to-r lg:from-white lg:to-transparent" />
+                    
                 </div>
+                 {/* Dark overlay */}
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#003b63]/95 via-[#0056b3]/80 to-[#003b63]/40" />
+                    
+                          {/* Soft glow effects */}
+                          <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+                          <div className="absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
 
                 <div className="w-full justify-center">
                     <Container>
                         <div className="relative z-10 py-12 lg:w-1/2 lg:pr-1 text-center ">
-                            <h1 className="mb-6 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight text-[#1d688b]">
+                            <h1 className="mb-6 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight tracking-tight text-white">
                                 <span className="block">Get Insurance Solutions</span>
                                 <span className="block ">Tailored to Your Needs</span>
                             </h1>
 
-                            <p className="text-justify text-[20px] leading-8 max-w-xl mx-auto lg:mx-0 mb-8 text-gray-700 ">
+                            <p className="text-justify text-[18px] leading-8 max-w-xl mx-auto lg:mx-0 mb-8 text-white ">
                                 Fill out our quick and easy forms to apply for insurance or request a service. Our team will guide you every step of the way, ensuring you have the protection you need.
                             </p>
                         </div>

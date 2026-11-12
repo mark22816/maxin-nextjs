@@ -98,7 +98,7 @@ export default function Services() {
             Our <span className="text-white">Services</span>
           </h2>
 
-          <p className="mx-auto max-w-3xl text-[18px] leading-7 text-white sm:text-[20px] sm:leading-8">
+          <p className="mx-auto max-w-3xl text-[18px] leading-7 text-white  sm:leading-8">
             Trust our knowledge and commitment to guide you through the
             changing world of insurance and investments, building a strong
             foundation for your future wealth, protection, and security.
@@ -142,7 +142,7 @@ export default function Services() {
 
                 {/* CARD BODY */}
                 <div className="flex flex-1 flex-col p-6">
-                  <h3 className="mb-3 min-h-[52px] text-xl font-bold leading-[1.3] text-[#17233c]">
+                  <h3 className="mb-3 min-h-[52px] text-lg font-bold leading-[1.3] text-[#17233c]">
                     {item.title}
                   </h3>
 

@@ -33,7 +33,7 @@ export default function Hero() {
             </h1>
 
           {/* Description */}
-            <p className="text-justify mx-auto mb-8 max-w-2xl text-base leading-8 text-white/90 sm:text-[20px] lg:mx-0">
+            <p className="text-justify mx-auto mb-8 max-w-2xl text-base leading-8 text-white/90 sm:text-[18px] lg:mx-0">
               With Traditional Life & Variable Life Insurance and Mutual Funds,
               you're not just planning for tomorrow. You're shaping your
               financial future, protecting your loved ones, and building wealth

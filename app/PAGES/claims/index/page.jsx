@@ -58,18 +58,20 @@ export default function GetQuote() {
                         sizes="auto"
                         className="object-cover object-center"
                     />
-                    {/* White gradient: fades up from the bottom on mobile, left to right on desktop */}
-                    <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-white via-white/85 to-transparent lg:bg-linear-to-r lg:from-white lg:to-transparent" />
-                </div>
-
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#003b63]/95 via-[#0056b3]/80 to-[#003b63]/40" />
+                    
+                          {/* Soft glow effects */}
+                          <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
+                          <div className="absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-blue-400/10 blur-3xl" />
+                    </div>
                 <div className="w-full justify-center">
                     <Container>
                         <div className="relative z-10 py-12 lg:w-1/2 lg:pr-12 text-center">
-                            <h1 className="mb-6 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-[#1d688b] ">
+                            <h1 className="mb-6 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white ">
                                 Claims
                             </h1>
 
-                            <p className="text-justify text-base sm:text-[20px] leading-8 max-w-xl mx-auto lg:mx-0 mb-8 text-gray-700 ">
+                            <p className="text-justify text-base sm:text-[18px] leading-8 max-w-xl mx-auto lg:mx-0 mb-8 text-white ">
                                 <span className="block">
                                     Insurance claims can be complex, but we simplify the process for you. Whether it's Life, HMO, Non-Life or Health Insurance, we ensure a smooth experience.
                                     From securing life insurance benefits to settling property damage claims swiftly, we're dedicated to efficiency and professionalism.

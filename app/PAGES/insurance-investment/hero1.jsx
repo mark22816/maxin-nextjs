@@ -92,7 +92,7 @@ const slides = [
               <span className="block text-gray-900">Invest in Your Future.</span>
             </h1>
 
-            <p className="text-gray-600 text-lg sm:text-[20px] leading-8 max-w-xl mx-auto lg:mx-0 mb-8">
+            <p className="text-gray-600 text-lg  leading-8 max-w-xl mx-auto lg:mx-0 mb-8">
               Find the right insurance and investment plan. With local
               expertise and trusted partners, MAXIN makes it easy to compare
               your options and get started today.

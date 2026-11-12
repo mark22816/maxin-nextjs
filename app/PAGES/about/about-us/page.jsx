@@ -55,17 +55,17 @@ const mission = [
 export default function Hero() {
   return (
     <>
-      <section className="relative min-h-[20vh] w-full overflow-hidden">
+      <section className="relative min-h-60vh] w-full overflow-hidden">
         {/* Background image (fixed on scroll) */}
         <div
           role="img"
           aria-label="Machica Group building"
           className="absolute inset-0 bg-cover bg-center bg-no-repeat md:bg-fixed"
-          style={{ backgroundImage: "url('/images/MachicaBuilding.png')" }}
+          style={{ backgroundImage: "url('/images/MachicaBuilding.png')" }} 
         />
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003b63]/95 via-[#003b63]/80 to-[#003b63]/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0056b3]/80 via-[#003b63]/80 to-[#003b63]/40" />
 
         {/* Decorative Glow */}
         <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-cyan-400/10 blur-[100px]" />
@@ -78,20 +78,20 @@ export default function Hero() {
           <div className="absolute right-[-40px] top-[30%] h-[300px] w-[300px] rounded-full border border-white/10" />
         </div>
 
-        <Container className="relative z-10 flex min-h-[70vh] w-full items-center">
-          <div className="grid w-full grid-cols-1 items-start sm:items-center gap-12 lg:grid-cols-1 pt-20 sm:pt-28">
+        <Container className="relative z-10 flex min-h-[60vh] w-full items-center">
+          <div className="grid w-full grid-cols-1 items-start sm:items-center gap-12 lg:grid-cols-1 pt-20 sm:pt-20">
             {/* Center Content */}
-            <div className="mx-auto max-w-3xl text-center pt-16">
+            <div className="mx-auto max-w-3xl text-center pt-10">
              
               
 
               {/* Heading */}
-              <h1 className="mb-6 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white">
+              <h1 className="mb-4 text-4xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-white">
                 About Us
               </h1>
 
               {/* Description */}
-              <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-white sm:text-[20px] text-center">
+              <p className="mx-auto mb-8 max-w-2xl text-base leading-8 text-white sm:text-[18px] text-center">
                 We are your one-stop shop for all insurance, investment, HMO needs. Plus professional advisory services on wealth, asset protection, and succession.
                 <span>
                   <br />
@@ -145,7 +145,7 @@ export default function Hero() {
                 </figure>
 
                 <div className="flex-1 border-t-4 border-[#0056b3] p-5">
-                  <p className="text-[18px] leading-relaxed text-gray-700 sm:text-[18px]">
+                  <p className="text-[16px] leading-relaxed text-gray-70">
                     {item.text}
                   </p>
                 </div>
@@ -218,22 +218,22 @@ export default function Hero() {
           <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Vision */}
             <article className="rounded-2xl border border-white/30 p-6 shadow-lg backdrop-blur-md sm:p-8">
-              <h3 className="mb-4 text-4xl font-extrabold uppercase tracking-wide text-white sm:text-5xl">
+              <h3 className="mb-4 text-2xl font-extrabold uppercase tracking-wide text-white sm:text-3xl">
                 Vision
               </h3>
              
-              <p className="text-[20px] leading-relaxed text-white">
+              <p className="text-[16px] leading-relaxed text-white">
                 {vision}
               </p>
             </article>
 
             {/* Mission */}
             <article className="rounded-2xl border border-white/30  p-6 shadow-lg backdrop-blur-md sm:p-8">
-              <h3 className="mb-4 text-4xl font-extrabold uppercase tracking-wide text-white sm:text-5xl">
+              <h3 className="mb-4 text-2xl font-extrabold uppercase tracking-wide text-white sm:text-3xl">
                 Mission
               </h3>
               
-              <ul className="space-y-3 pl-0 text-[20px] leading-relaxed text-white">
+              <ul className="space-y-3 pl-0 text-[16px] leading-relaxed text-white">
                 {mission.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
