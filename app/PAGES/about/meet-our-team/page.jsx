@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Container from "../../../../Layout/container";
+import SetAppointment from "../../../../components/set-appointment";
 
 const directors = [
   {
@@ -46,6 +47,8 @@ const directors = [
     ],
   },
 ];
+
+
 
 export default function BoardOfDirectors() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -177,6 +180,47 @@ export default function BoardOfDirectors() {
           </div>
         </Container>
       </section>
+
+      <SetAppointment />
+
+     <section className="bg-slate-50 py-16 sm:py-24">
+  <Container>
+    <div className="mx-auto max-w-3xl text-center">
+      <p className="text-xs font-bold uppercase tracking-widest text-[#1a9cc4]">
+        The MAXIN Team
+      </p>
+      <h2 className="mt-3 text-3xl font-semibold text-[#012289] sm:text-4xl lg:text-5xl">
+       Our expertise, your solution
+       <span className="mt-4 block text-[#1a9cc4]">since 1999</span>
+
+     </h2>
+      <div className="mx-auto mt-5 h-1 w-16 rounded-full bg-[#1a9cc4]" />
+      <p className="mt-6 text-base leading-relaxed text-slate-600 sm:text-lg">
+        Behind every policy and investment plan is a team that listens first,
+        then recommends what truly fits your goals.
+      </p>
+    </div>
+
+    <div className="relative mx-auto mt-10 max-w-5xl sm:mt-14">
+      
+      <div className="relative overflow-hidden rounded-2xl ">
+        <Image
+          src="/images/maxin-team.png"
+          alt="MAXIN team"
+          width={1600}
+          height={800}
+          sizes="(min-width: 1024px) 1024px, 100vw"
+          className="h-auto w-full object-cover"
+        />
+      </div>
+    </div>
+  </Container>
+</section>
+
+            
+
+      
+      
     </>
   );
 }

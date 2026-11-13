@@ -55,7 +55,7 @@ const mission = [
 export default function Hero() {
   return (
     <>
-      <section className="relative min-h-60vh] w-full overflow-hidden">
+      <section className="relative min-h-[60vh] w-full overflow-hidden">
         {/* Background image (fixed on scroll) */}
         <div
           role="img"
@@ -86,7 +86,7 @@ export default function Hero() {
               
 
               {/* Heading */}
-              <h1 className="text-4xl sm:text-5xl font-semibold text-white">
+              <h1 className="text-4xl sm:text-5xl font-semibold text-white pb-3 ">
                 About Us
               </h1>
 
