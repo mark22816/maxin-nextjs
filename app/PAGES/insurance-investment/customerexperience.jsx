@@ -37,7 +37,7 @@ export default function CustomerExperience() {
     <section className="w-full py-16 md:py-18 bg-gray-50 relative overflow-hidden">
       <Container>
         <div className="max-w-3xl mx-auto text-center px-4">
-          <h2 className="text-3xl sm:text-4xl font-medium text-[#012289] mb-6">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#012289] mb-6">
             Customer Experience
           </h2>
           <p className="text-lg  text-gray-600 mb-10">
