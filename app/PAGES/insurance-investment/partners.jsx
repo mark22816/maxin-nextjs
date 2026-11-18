@@ -78,9 +78,9 @@ export default function ProductsAndPartners() {
           <div className="mx-auto mb-12 max-w-3xl text-center md:mb-16">
             
 
-            <h2 className="text-3xl font-extrabold tracking-tight text-[#012289] sm:text-4xl lg:text-5xl">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl  font-extrabold tracking-tight text-[#012289] ">
               Products, Services &{" "}
-              <span className="text-[#14678d]">Trusted Partners</span>
+              <span className="text-[#1a9cc4]">Trusted Partners</span>
             </h2>
 
             

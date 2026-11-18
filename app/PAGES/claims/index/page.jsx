@@ -70,8 +70,13 @@ export default function GetQuote() {
 
                 <div className="w-full">
                     <Container>
-                        <div className="relative z-10 py-12 text-center lg:w-1/2 lg:pr-12">
-                            <h1 className="mb-6 text-4xl sm:text-5xl font-semibold text-white">
+                        <div className="relative z-10 py-12 text-center lg:text-left lg:w-1/2 lg:pr-12">
+                        {/* Accent */}
+                        <div className="mb-2 hidden  min-[1080px]:flex justify-center lg:justify-start gap-3">
+                        <span className="h-1 w-16 rounded-full bg-white" />
+                        <span className="h-1 w-3 rounded-full bg-white/50" />
+                        </div>
+                            <h1 className="pt-2 mb-6 text-4xl sm:text-5xl font-semibold   text-white">
                                 Claims
                             </h1>
 
@@ -93,7 +98,8 @@ export default function GetQuote() {
             <section className="w-full bg-white py-10">
                 <Container>
                     <div className="flex flex-col items-center py-12 text-center">
-                        <h2 className="text-3xl sm:text-4xl font-extrabold  tracking-wide text-[#1a9cc4]">
+                        <div className="mx-auto mt-5 h-1 w-10 rounded-full bg-[#1a9cc4]" />
+                        <h2 className="pt-4 text-3xl sm:text-4xl font-extrabold  tracking-wide text-[#1a9cc4]">
                             Claims Requirements
                         </h2>
                         

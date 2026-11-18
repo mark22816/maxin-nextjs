@@ -18,7 +18,7 @@ export default function ProductsServices() {
     <section className="relative bg-gradient-to-br from-[#1a9cc4] via-[#14678d] to-[#012289] py-16 sm:py-20 w-full">
       <Container className="relative w-full">
         <h2 className="text-center text-white font-bold tracking-wide text-xl sm:text-2xl lg:text-3xl mb-10 sm:mb-12">
-          OUR PRODUCTS &amp; SERVICES
+          OUR PRODUCT &amp; SERVICES
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">

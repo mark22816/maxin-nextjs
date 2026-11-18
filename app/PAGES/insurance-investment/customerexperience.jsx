@@ -37,6 +37,12 @@ export default function CustomerExperience() {
     <section className="w-full py-16 md:py-18 bg-gray-50 relative overflow-hidden">
       <Container>
         <div className="max-w-3xl mx-auto text-center px-4">
+          <h2 className="text-3xl sm:text-4xl font-medium text-[#012289] mb-6">
+            Customer Experience
+          </h2>
+          <p className="text-lg  text-gray-600 mb-10">
+           What Our Clients Say About Us
+          </p>
 
           {/* Stars */}
           <div className="flex justify-center gap-2 mb-8">
@@ -45,13 +51,13 @@ export default function CustomerExperience() {
                 key={i}
                 className="w-10 h-10 sm:w-11 sm:h-11 flex items-center justify-center rounded-md"
               >
-                <FaStar className="text-[#14678d] text-lg sm:text-xl" />
+                <FaStar className="text-[#1a9cc4] text-lg sm:text-xl" />
               </div>
             ))}
           </div>
 
           {/* Quote */}
-          <p className="text-[18px]  sm:text-xl md:text-lg font-bold text-[#012289] text-justify leading-relaxed mb-6 transition-all duration-300">
+          <p className="text-[18px]  sm:text-xl md:text-lg font-medium text-[#012289] text-justify leading-relaxed mb-6 transition-all duration-300">
             "{current.quote}"
           </p>
 
@@ -65,14 +71,14 @@ export default function CustomerExperience() {
             <button
               onClick={goPrev}
               aria-label="Previous testimonial"
-              className="w-11 h-11 flex items-center justify-center bg-[#14678d] hover:bg-[#012289] text-white rounded-lg transition-colors duration-300"
+              className="w-11 h-11 flex items-center justify-center bg-[#1a9cc4] hover:bg-[#012289] text-white rounded-lg transition-colors duration-300"
             >
               <FaArrowLeft />
             </button>
             <button
               onClick={goNext}
               aria-label="Next testimonial"
-              className="w-11 h-11 flex items-center justify-center bg-[#14678d] hover:bg-[#012289] text-white rounded-lg transition-colors duration-300"
+              className="w-11 h-11 flex items-center justify-center bg-[#1a9cc4] hover:bg-[#012289] text-white rounded-lg transition-colors duration-300"
             >
               <FaArrowRight />
             </button>

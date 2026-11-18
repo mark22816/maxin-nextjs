@@ -31,7 +31,7 @@ export default function Content() {
          
 
           {/* Heading */}
-          <h3 className="text-[clamp(24px,4vw,38px)] font-bold leading-tight text-[#1a9cc4]">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold  leading-tight text-[#1a9cc4]">
              Our Non-Life Insurance Partners
           </h3>
 

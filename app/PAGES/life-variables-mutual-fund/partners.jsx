@@ -14,14 +14,13 @@ export default function Content() {
       <Container className="relative flex w-full flex-col items-center">
         
         {/* Small Label */}
-        
-        <h3 className="text-center text-[clamp(24px,4vw,38px)] font-bold leading-tight text-[#1a9cc4]">
+        <div className=" mb-20 sm:mb-22 ">
+        <h3  className=" text-center text-2xl sm:text-3xl lg:text-4xl font-extrabold  leading-tight text-[#1a9cc4]">
           Our Life, Variable Life & Mutual Funds Partners
         </h3>
+        </div>
 
-        <p className="mt-3 mb-10 max-w-xl text-center text-sm leading-relaxed text-gray-500 sm:text-base">
-          Trusted partners in life insurance, variable life, and investment solutions.
-        </p>
+       
 
         {/* Partner Cards */}
         <div className="grid w-full max-w-2xl grid-cols-2 gap-8 sm:gap-10 sm:grid-cols-2">

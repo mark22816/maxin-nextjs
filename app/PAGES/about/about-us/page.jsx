@@ -110,22 +110,24 @@ export default function Hero() {
       >
         <Container>
           <div className="mb-12 text-center">
+            <div className="mx-auto mt-5 h-1 w-10 rounded-full bg-[#1a9cc4]" />
             <h2
               id="historical-background"
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold uppercase  tracking-wide text-[#1a9cc4]"
+              className="pt-4 text-2xl sm:text-3xl lg:text-4xl font-extrabold  tracking-wide text-[#1a9cc4]"
             >
               Historical Background
             </h2>
            
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="flex flex-wrap justify-center gap-8 ">
             {history.map((item) => (
               <article
                 key={item.year}
-                className="group flex w-full flex-col overflow-hidden rounded border border-sky-100 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)]"
+                className="group flex w-full flex-col  mx-auto overflow-hidden
+                  rounded-lg rounded-br-[48px] border-white/15 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)]"
               >
-                <figure className="relative aspect-[3/2] w-full overflow-hidden">
+                <figure className="relative aspect-[3/2] w-full overflow-hidden ">
                   <Image
                     src={item.src}
                     alt={item.alt}
@@ -165,10 +167,11 @@ export default function Hero() {
       >
         <Container>
           <div className="mb-12 text-center">
+            <div className="mx-auto mt-5 h-1 w-10 rounded-full bg-[#1a9cc4]" />
             
             <h2
               id="awards-and-recognition"
-              className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wide uppercase text-[#1a9cc4]"
+              className="pt-4 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-wide  text-[#1a9cc4]"
             >
               Awards and Recognition
             </h2>

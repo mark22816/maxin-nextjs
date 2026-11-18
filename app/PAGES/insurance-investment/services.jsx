@@ -73,7 +73,7 @@ export default function Services() {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-[400px] overflow-hidden bg-cover bg-center bg-fixed"
+      className="relative min-h-[400px] overflow-hidden bg-cover bg-center md:bg-fixed"
       style={{ backgroundImage: `url(${IMAGES.servicesBackground})` }}
     >
       {/* Background transparency overlay: change the number after the slash (0-100) */}
@@ -89,16 +89,16 @@ export default function Services() {
         <div
           style={{ transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)" }}
           className={`
-            mx-auto max-w-[850px] pt-20 pb-12 text-center
+            mx-auto max-w-[850px] pt-14 pb-10 text-center sm:pt-20 sm:pb-12
             transition-all duration-1000
             ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}
           `}
         >
-          <h2 className="mb-5 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+          <h2 className="mb-5 text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-white ">
             Our <span className="text-white">Services</span>
           </h2>
 
-          <p className="mx-auto max-w-3xl text-[18px] leading-7 text-white  sm:leading-8">
+          <p className="mx-auto max-w-3xl text-base leading-7 text-white sm:text-[18px] sm:leading-8">
             Trust our knowledge and commitment to guide you through the
             changing world of insurance and investments, building a strong
             foundation for your future wealth, protection, and security.
@@ -106,8 +106,8 @@ export default function Services() {
         </div>
 
         {/* SERVICES GRID */}
-        <div className="pb-20">
-          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        <div className="pb-14 sm:pb-20">
+          <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
             {servicesData.map((item, index) => (
               <div
                 key={item.title}
@@ -116,8 +116,9 @@ export default function Services() {
                   transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
                 }}
                 className={`
-                  group relative flex flex-col overflow-hidden
-                  rounded border border-white/15
+                  group relative flex h-full w-full  flex-col
+                  mx-auto overflow-hidden
+                  rounded-lg rounded-br-[48px] border-white/15
                   bg-white shadow-xl
                   transition-all duration-700
                   hover:-translate-y-2
@@ -130,7 +131,7 @@ export default function Services() {
                 `}
               >
                 {/* IMAGE */}
-                <div className="relative h-[180px] w-full overflow-hidden sm:h-[190px] xl:h-[180px]">
+                <div className="relative h-[200px] w-full shrink-0 overflow-hidden sm:h-[190px] xl:h-[180px]">
                   <Image
                     src={item.bg}
                     alt={`${item.title} service`}
@@ -141,12 +142,12 @@ export default function Services() {
                 </div>
 
                 {/* CARD BODY */}
-                <div className="flex flex-1 flex-col p-6">
-                  <h3 className="mb-3 min-h-[52px] text-lg font-bold leading-[1.3] text-[#17233c]">
+                <div className="flex flex-1 flex-col p-5 sm:p-6">
+                  <h3 className="mb-3 text-lg font-bold leading-[1.3] text-[#002288] sm:min-h-[52px]">
                     {item.title}
                   </h3>
 
-                  <p className="mb-7 flex-1 text-[16px] leading-7 text-[#607086]">
+                  <p className="mb-7 flex-1 text-[15px] leading-7 text-[#607086] sm:text-[16px]">
                     {item.p}
                   </p>
 

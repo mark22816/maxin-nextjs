@@ -37,14 +37,11 @@ export default function Content() {
       <Container className="relative flex w-full flex-col items-center">
         {/* Section Heading */}
         <div className="mb-10 text-center sm:mb-14">
-          <h3 className="text-[clamp(24px,4vw,38px)] font-bold leading-tight text-[#1a9cc4]">
+          <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-[#1a9cc4]">
             Our HMO / Health Insurance Partners
           </h3>
 
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-7 text-gray-500 sm:text-base">
-            We partner with trusted health insurance providers to deliver
-            dependable protection and flexible solutions tailored to your needs.
-          </p>
+          
         </div>
 
         {/* Logo Marquee */}
