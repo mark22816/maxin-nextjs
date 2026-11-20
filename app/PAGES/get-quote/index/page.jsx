@@ -62,7 +62,7 @@ export default function GetQuote() {
                                 <span className="block ">Tailored to Your Needs</span>
                             </h2>
 
-                            <p className="mx-auto mb-8 max-w-xl text-center text-[16px] sm:text-[18] leading-6 sm:leading-7 text-white lg:mx-0 lg:text-justify">
+                            <p className="mx-auto mb-8 max-w-xl text-center text-[16px] sm:text-[18px] leading-6 sm:leading-7 text-white lg:mx-0 lg:text-justify">
                                 Fill out our quick and easy forms to apply for insurance or request a service. Our team will guide you every step of the way, ensuring you have the protection you need.
                             </p>
                         </div>
