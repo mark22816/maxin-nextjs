@@ -77,7 +77,7 @@ function AudienceCard({ href, title, description, icon: Icon, index, isLast }) {
       <h3 className="text-xl font-semibold tracking-tight text-[#2c7ba3] mb-3 transition-colors">
         {title}
       </h3>
-      <p className="text-base text-slate-600 leading-relaxed max-w-sm">
+      <p className="text-base sm:text-[18px] text-slate-600 leading-6 sm:leading-7 max-w-sm">
         {description}
       </p>
 

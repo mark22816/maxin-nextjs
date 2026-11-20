@@ -42,8 +42,7 @@ export default function GetQuote() {
                     />
 
                     {/* Dark overlay: solid on mobile, gradient on desktop */}
-                    <div className="absolute inset-0 bg-[#003b63]/75 lg:hidden" />
-                    <div className="absolute inset-0 hidden bg-gradient-to-r from-[#003b63]/95 via-[#0056b3]/80 to-[#003b63]/40 lg:block" />
+                    <div className="absolute  inset-0 bg-[#012289]/85" />
 
                     {/* Soft glow effects */}
                     <div className="absolute -top-20 -left-20 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
@@ -63,7 +62,7 @@ export default function GetQuote() {
                                 <span className="block ">Tailored to Your Needs</span>
                             </h2>
 
-                            <p className="mx-auto mb-8 max-w-xl text-center text-[18px] leading-8 text-white lg:mx-0 lg:text-justify">
+                            <p className="mx-auto mb-8 max-w-xl text-center text-[16px] sm:text-[18] leading-6 sm:leading-7 text-white lg:mx-0 lg:text-justify">
                                 Fill out our quick and easy forms to apply for insurance or request a service. Our team will guide you every step of the way, ensuring you have the protection you need.
                             </p>
                         </div>
@@ -74,15 +73,15 @@ export default function GetQuote() {
             {/* Buttons: switch the form below */}
             <section className="w-full bg-white py-10 ">
                 <Container>
-                    <div className="grid grid-cols-1 gap-6 justify-center sm:grid-cols-1 lg:grid-cols-3 px-20">
+                    <div className="mx-auto grid w-full grid-cols-1 gap-6 lg:grid-cols-3 ">
                         {links.map((link) => (
                             <button
                                 key={link.key}
                                 type="button"
                                 onClick={() => setActive(link.key)}
-                                className={`rounded-md border px-5 py-3 text-center text-sm font-medium text-white transition-colors duration-300 hover:border-[#1d688b] hover:bg-[#1d688b] ${
+                                className={`w-full rounded-md border px-6 py-3 text-center text-[16px] sm:text-[18px] font-medium text-white transition-colors duration-300 hover:border-[#1a9cc4] hover:bg-[#1a9cc4] ${
                                     active === link.key
-                                        ? "border-[#1d688b] bg-[#1d688b]"
+                                        ? "border-[#1a9cc4] bg-[#1a9cc4]"
                                         : "border-[#012289] bg-[#012289]"
                                 }`}
                             >

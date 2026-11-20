@@ -73,7 +73,7 @@ export default function HMOSection  () {
   );
 
   const Description = ({ provider }) => (
-    <p className="mb-3 line-clamp-3 text-left text-base leading-[1.5] tracking-wide text-gray-600 sm:text-base md:text-[17px] lg:leading-[1.35]">
+    <p className="mb-3 line-clamp-3 text-left text-[14px] leading-5 sm:leading-6 tracking-wide text-gray-600 sm:text-base md:text-[17px] lg:leading-[1.35]">
       {provider.description}
     </p>
   );

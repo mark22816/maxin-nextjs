@@ -127,7 +127,7 @@ export default function Hero() {
                 className="group flex w-full flex-col  mx-auto overflow-hidden
                   rounded-lg rounded-br-[48px] border-white/15 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)]"
               >
-                <figure className="relative aspect-[3/2] w-full overflow-hidden ">
+                <figure className="relative aspect-3/2 w-full overflow-hidden ">
                   <Image
                     src={item.src}
                     alt={item.alt}
