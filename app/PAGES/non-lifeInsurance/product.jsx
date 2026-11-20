@@ -115,12 +115,13 @@ function ProductCard({ image, title, description, code, icon: Icon, index }) {
   const tone = tones[index % 3];
 
   return (
-    <div
+     <div
       ref={cardRef}
       style={{ transitionDelay: isVisible ? `${(index % 3) * 100}ms` : "0ms" }}
-      className={`rounded-lg group relative flex flex-col overflow-hidden border border-black/10 bg-[#F8F7F3] transition-all duration-700 ease-out hover:border-maxin-blue/30 hover:shadow-[0_24px_48px_-20px_rgba(1,34,137,0.28)] hover:-translate-y-1 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      }`}
+      className={`group flex w-full flex-col overflow-hidden
+      rounded-lg rounded-br-[48px] border-white/15 bg-white shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+      isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+     }`}
     >
       {/* Image */}
       <div className="relative w-full h-[220px] overflow-hidden">
@@ -150,12 +151,12 @@ function ProductCard({ image, title, description, code, icon: Icon, index }) {
       <div className="flex flex-col flex-1 pt-10 pb-7 px-6">
        
 
-        <h3 className="text-[18px] font-semibold uppercase tracking-tight text-[#1a6fa0] mb-1 leading-snug">
+        <h3 className="text-[16px] sm:text-[18px] font-semibold uppercase tracking-tight text-[#1a6fa0] mb-1 leading-snug">
           {title}
         </h3>
-        <div className="h-px w-10 bg-maxin-cyan mb-4 transition-all duration-500 group-hover:w-16" />
+        <div className="h-px w-10 bg-maxin-cyan mb-2 transition-all duration-500 group-hover:w-16" />
 
-        <p className="text-[16px] text-gray-500 leading-relaxed mb-5">
+        <p className="text-[14px] sm:text-[16px] text-gray-500 leading-5 sm:leading-6 mb-5">
           {description}
         </p>
 

@@ -26,7 +26,7 @@ export default function Hero() {
       />
 
       {/* Dark overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#003b63]/95 via-[#0056b3]/80 to-[#003b63]/40" />
+      <div className="absolute inset-0 bg- bg-[#012289]/75" />
 
       {/* Decorative Glow */}
       <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-cyan-400/10 blur-[100px]" />
@@ -40,7 +40,7 @@ export default function Hero() {
       </div>
 
       <Container className="relative z-10 flex min-h-[70vh] w-full items-center">
-        <div className="grid w-full grid-cols-1 items-start sm:items-center gap-12 lg:grid-cols-2 pt-20 sm:pt-28">
+         <div className="grid w-full grid-cols-1  justify-center justify-items-center gap-10 pt-20 sm:pt-22 text-center lg:justify-items-start lg:text-left">
           {/* Left Content */}
           <div className="max-w-3xl text-center lg:text-left pt-16">
             {/* Accent */}
@@ -55,7 +55,7 @@ export default function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mx-auto mb-8 max-w-2xl  leading-8 text-white/90 sm:text-[18px] lg:mx-0 text-center sm:text-justify">
+            <p className=" mx-auto mb-8 lg:text-justify max-w-xl text-base leading-6 sm:leading-7 text-white/95 sm:text-[18px] lg:mx-0">
               Discover peace of mind with our HMO/ Health Insurance plan. Enjoy
               low premiums and access to a vast network of providers for
               comprehensive care. Say goodbye to high medical bills and hello to

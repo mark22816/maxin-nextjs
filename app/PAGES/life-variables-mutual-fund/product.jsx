@@ -36,17 +36,17 @@ function ProductRow({ image, title, description, reverse }) {
   }, []);
 
   return (
-    <div ref={rowRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center gap-6 lg:gap-10">
+    <div ref={rowRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 items-center gap-6 lg:gap-8">
       <div
         className={`${reverse ? "md:order-2" : ""} transition-all duration-700 ease-out ${
-          isVisible ? "opacity-100 translate-x-0" : `opacity-0 ${reverse ? "translate-x-10" : "-translate-x-10"}`
+          isVisible ? "opacity-100 translate-x-0" : `opacity-0 ${reverse ? "translate-x-5" : "-translate-x-5"}`
         }`}
       >
         <Image
           src={image}
           alt={title}
-          width={500}
-          height={300}
+          width={400}
+          height={200}
           className="w-full h-auto rounded-lg shadow-lg object-cover"
           
         />
@@ -54,11 +54,11 @@ function ProductRow({ image, title, description, reverse }) {
 
       <div
         className={`flex flex-col justify-center mt-6 lg:mt-0 ${reverse ? "md:order-1" : ""} transition-all duration-700 ease-out delay-150 ${
-          isVisible ? "opacity-100 translate-x-0" : `opacity-0 ${reverse ? "-translate-x-10" : "translate-x-10"}`
+          isVisible ? "opacity-100 translate-x-0" : `opacity-0 ${reverse ? "-translate-x-5" : "translate-x-5"}`
         }`}
       >
-        <h3 className="text-[20px] font-bold text-[#1a6fa0] mb-4 leading-tight">{title}</h3>
-        <p className="text-[18px]  text-justify text-gray-500 mb-6">{description}</p>
+        <h3 className="text-[18px] sm:text-[20px] font-bold text-[#1a6fa0] mb-4 leading-tight">{title}</h3>
+        <p className="text-[14px] sm:text-[16px] text-left text-gray-500 mb-6 leading-6 sm:leading-7">{description}</p>
       </div>
     </div>
   );

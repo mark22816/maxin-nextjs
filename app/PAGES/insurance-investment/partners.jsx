@@ -110,7 +110,7 @@ export default function ProductsAndPartners() {
                         {row.label}
                       </h3>
 
-                      <p className="mt-2 text-sm leading-6 text-gray-500">
+                      <p className="mt-2 text-sm leading-5 sm:leading-6 text-gray-500">
                         {row.description}
                       </p>
                     </div>

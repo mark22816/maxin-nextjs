@@ -109,7 +109,7 @@ export default function Footer() {
             <p className="text-white/60 text-sm sm:text-[15px]">
               © 2026 MAXIN. All rights reserved.
             </p>
-            <div className="flex items-center gap-5 sm:gap-6 text-sm sm:text-[15px]">
+            <div className="flex items-center gap-5 sm:gap-6 text-[12px] sm:text-[14px]">
               <a href="#" className="text-white/60 hover:text-white transition-colors duration-200">
                 Privacy Policy
               </a>

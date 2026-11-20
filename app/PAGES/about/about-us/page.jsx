@@ -65,7 +65,7 @@ export default function Hero() {
         />
 
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0056b3]/80 via-[#003b63]/80 to-[#003b63]/40" />
+        <div className="absolute inset-0 bg-[#012289]/85" />
 
         {/* Decorative Glow */}
         <div className="absolute -left-32 top-20 h-80 w-80 rounded-full bg-cyan-400/10 blur-[100px]" />

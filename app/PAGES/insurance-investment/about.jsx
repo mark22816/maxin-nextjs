@@ -74,12 +74,12 @@ export default function About (){
             Find optimal insurance solutions with MAXIN
           </h2>
 
-          <p className="max-w-prose text-[18px]  leading-8  text-gray-700 mb-8 text-justify">
-            At MAXIN, we make it easy to find great insurance in the Philippines.
-            We work with top insurance companies to compare all your options.
-            Trust us to help you pick the right insurance for you, so you can
-            feel secure. With our expertise and support, you'll have peace of
-            mind knowing you're making the best choice for your needs.
+          <p className="max-w-prose text-[16px] sm:text-[18px] leading-7  tracking-wide text-gray-700 mb-8 text-left">
+          At MAXIN, we make it easy to find great insurance in the Philippines.
+          We work with top insurance companies to compare all your options.
+          Trust us to help you pick the right insurance for you, so you can
+          feel secure. With our expertise and support, you'll have peace of
+          mind knowing you're making the best choice for your needs.
           </p>
 
           {/* Highlight points */}
@@ -103,7 +103,7 @@ export default function About (){
                   aria-hidden="true"
                   className="w-5 h-5 text-[#002288] shrink-0 mt-1"
                 />
-                <span className="min-w-0 = sm:text-[18px] leading-7  text-gray-700">
+                <span className="min-w-0 =  text-[16px] sm:text-[18px] leading-6 sm:leading-7  text-gray-700">
                   {point}
                 </span>
               </li>

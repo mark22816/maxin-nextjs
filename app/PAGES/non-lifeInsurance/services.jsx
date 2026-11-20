@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Flame, Car, Plane, Accessibility, Ship, Handshake, HandCoins } from "lucide-react";
+import { Flame, Car, Plane, Accessibility, Ship, Handshake, HandCoins,HardHat,UserLock, BriefcasePlus } from "lucide-react";
 import Container from "../../../Layout/container";
 
 const products = [
@@ -11,8 +11,8 @@ const products = [
   { id: "personal-accident-insurance", label: "Personal Accident\nInsurance", icon: Accessibility, href: "/personal-accident-insurance" },
   { id: "marine-insurance", label: "Marine\nInsurance", icon:Ship, href: "/marine-insurance" },
   { id: "bonds-surety", label: "Bonds \n& Surety", icon: Handshake, href: "/bond-surety" },
-  { id: "engineering-insurance", label: "Engineering \nInsurance", icon: HandCoins, href: "/engineering-insurance" },
-  { id: "comprehensive-general-liability", label: "Comprehensive \nGeneral Liability", icon: HandCoins, href: "/comprehensive-general-liability" },
+  { id: "engineering-insurance", label: "Engineering \nInsurance", icon: HardHat, href: "/engineering-insurance" },
+  { id: "comprehensive-general-liability", label: "Comprehensive \nGeneral Liability", icon: UserLock, href: "/comprehensive-general-liability" },
   { id: "professional-indemity-insurance", label: "Professional \nIndemmity Insurance", icon: HandCoins, href: "/professional-indemmity-insurance" },
 ];
 
